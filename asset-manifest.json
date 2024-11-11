@@ -1,16 +1,15 @@
 {
   "files": {
-    "main.css": "/Ajohno.github.io/static/css/main.f855e6bc.css",
-    "main.js": "/Ajohno.github.io/static/js/main.b3d96f82.js",
-    "static/js/453.ed3810f9.chunk.js": "/Ajohno.github.io/static/js/453.ed3810f9.chunk.js",
-    "static/media/logo.svg": "/Ajohno.github.io/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/Ajohno.github.io/index.html",
-    "main.f855e6bc.css.map": "/Ajohno.github.io/static/css/main.f855e6bc.css.map",
-    "main.b3d96f82.js.map": "/Ajohno.github.io/static/js/main.b3d96f82.js.map",
-    "453.ed3810f9.chunk.js.map": "/Ajohno.github.io/static/js/453.ed3810f9.chunk.js.map"
+    "main.css": "/ajohno.github.io/static/css/main.6bf37357.css",
+    "main.js": "/ajohno.github.io/static/js/main.a1c6c6a0.js",
+    "static/js/453.ed3810f9.chunk.js": "/ajohno.github.io/static/js/453.ed3810f9.chunk.js",
+    "index.html": "/ajohno.github.io/index.html",
+    "main.6bf37357.css.map": "/ajohno.github.io/static/css/main.6bf37357.css.map",
+    "main.a1c6c6a0.js.map": "/ajohno.github.io/static/js/main.a1c6c6a0.js.map",
+    "453.ed3810f9.chunk.js.map": "/ajohno.github.io/static/js/453.ed3810f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f855e6bc.css",
-    "static/js/main.b3d96f82.js"
+    "static/css/main.6bf37357.css",
+    "static/js/main.a1c6c6a0.js"
   ]
 }

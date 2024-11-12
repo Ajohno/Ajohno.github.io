@@ -1,6 +1,6 @@
 // src/App.js
 import React from 'react';
-import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes, BrowserRouter } from 'react-router-dom';
 import Sidebar from './components/Sidebar'; 
 import HomePage from './components/HomePage';
 import AboutPage from './components/AboutPage';
@@ -15,13 +15,15 @@ function App() {
       <div className="App">
         <Sidebar/>
         <div className="content">
+        <BrowserRouter basename="ajohno.github.io">
           <Routes>
-            <Route path="/" Component={<HomePage />} />
+            <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/experience" element={<ExperiencePage />} />
             <Route path="/projects" element={<ProjectPage />} />
             <Route path="/credits" element={<CreditPage />} />
           </Routes>
+          </BrowserRouter>
         </div>
       </div>
     </Router>

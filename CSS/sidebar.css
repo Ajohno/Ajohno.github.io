@@ -46,7 +46,7 @@
 }
 
 /* Responsive Styling for Mobile Devices */
-@media (max-width: 768px) {
+@media (max-width: 768px) { /*For tablet size devices*/
     body {
         flex-direction: column;  /* Stack sidebar and content */
     }
@@ -69,9 +69,9 @@
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 480px) { /*For phone size devices*/
     .sidebar ul li a {
-        font-size: 14px; /* Smaller font size on very small screens */
+        font-size: 30px; /* Smaller font size on very small screens */
     }
 
     .main-content h1 {

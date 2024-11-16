@@ -36,10 +36,6 @@ body {
     z-index: -1; /* Ensure it stays behind content */
 }
 
-.main-content h1 {
-    margin-bottom: 20px;
-}
-
 .main-content p {
     line-height: 1.6;
 }
@@ -73,12 +69,18 @@ body {
     border-radius: 8px;
 }   
 
+/* Bottom Social Buttons Area */
 .social-links-buttons {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Three equal-width columns */
     grid-gap: 10px; /* Space between items */
-    padding: 20px;
-    margin-left: 20%;
+   
+
+}
+
+/* Social Buttons */
+.social-links-buttons button{
+    padding: 10%;
 }
 
 /* Divider Line */
@@ -98,59 +100,92 @@ body {
         font-size: 10px;
     }
 
-    .grid-container {
+    .main-content .grid-container {
         display: grid;
-        grid-template-columns: repeat(1, 1fr); /* Three equal-width columns */
+        grid-template-columns: repeat(1, 1fr); /* One column */
         grid-gap: 10px; /* Space between items */
+        padding: 20px;        
+    }
+
+    /* Grid item styling */
+    .grid-item {
+        color: white;
         padding: 20px;
-        margin-left: 5%;
-        
+        font-size: 20px;
+        text-align: center;
+        border-radius: 8px;
+    } 
+    
+    .main-content p {
+        font-size: 30px; /* Adjust paragraph text for readability */
     }
 
-    .main-content h1 {
-        font-size: 30px;
-    }
-
-    .sidebar {
-        width: 100%;
-        height: auto;
-        padding: 10px;
-        position: relative;
-        box-sizing: border-box;
-    }
-
-    .sidebar ul li {
-        margin: 10px 0;
-    }
 
     .main-content {
-        padding: 10px;
         background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
-        margin-top: 20px;  /* Space between sidebar and content */
+    }
+
+    /* Bottom Social Buttons Area */
+    .social-links-buttons {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Three equal-width columns */
+        grid-gap: 10px; /* Space between items */
+    }
+
+    /* Social Buttons */
+    .social-links-buttons button{
+        padding: 40%;
+        height:80%;
+        width: 80%;
     }
     
 }
 
 @media (max-width: 480px) { /*For phone size devices*/
-    .sidebar ul li a {
-        font-size: 20px; /* Smaller font size on very small screens */
+
+    body {
+        flex-direction: column;  /* Stack sidebar and content */
+        font-size: 10px;
     }
 
-    .main-content h1 {
-        font-size: 10px; /* Adjust main heading size */
+    .main-content .grid-container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr); /* One column */
+        grid-gap: 10px; /* Space between items */
+        padding: 20px;        
     }
+
+    /* Grid item styling */
+    .grid-item {
+        color: white;
+        padding: 20px;
+        font-size: 20px;
+        text-align: center;
+        border-radius: 8px;
+    }   
 
     .main-content p {
         font-size: 30px; /* Adjust paragraph text for readability */
     }
 
-    .grid-container {
+    .main-content {
+        background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
+    }
+
+    /* Bottom Social Buttons Area */
+    .social-links-buttons {
         display: grid;
-        grid-template-columns: repeat(1, 1fr); /* Three equal-width columns */
-        grid-gap: 10px; /* Space between items */
-        padding: 20px;
-        margin-left: 5%;
+        grid-template-columns: repeat(3, 1fr); /* Three equal-width columns */
+        grid-gap: 10px; /* Space between items */      
         
     }
+
+    /* Social Buttons */
+    .social-links-buttons button{
+        padding: 40%;
+        height:80%;
+        width: 80%;
+    }
+
 
 }

@@ -2,7 +2,7 @@
 .sidebar {
     width: 250px;
     height:100vh;
-    background-color: #333;
+    background-color: #0D0D0D;
     color: #fff;
     padding: 20px;
     transition: width 0.3s ease-in-out;
@@ -16,17 +16,33 @@
     margin: 15px 0;
 }
 
+/* Sidebad Link List */
 .sidebar ul li a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: #818181;
+    color: #FFE59B;
     display: block;
     transition: 0.3s;
 }
 
+/* When hovering over the link */
 .sidebar ul li a:hover {
-    color: #f1f1f1;
+    color: #000000;
+    background-color: #FFE59B;
+}
+
+/* Thos is the CSS for when the user is actively on a specific page */
+.sidebar ul li a.active {
+    color: #000000;
+    background-color: #FFE59B;
+}
+
+/* Divider line Styling */
+.sidebar hr{
+    border: none;           /* Remove default border */
+    border-top: 1px solid #FFE59B; /* Custom border style */
+    margin: 10px 0;          /* Add space around the divider */
 }
 
 /* Responsive Styling for Mobile Devices */
@@ -66,3 +82,5 @@
         font-size: 14px; /* Adjust paragraph text for readability */
     }
 }
+
+

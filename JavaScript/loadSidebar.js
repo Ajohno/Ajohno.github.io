@@ -1,4 +1,4 @@
-// loadSidebar.js
+// This is the JavaScript file to load the Sidebar component onto each of the pages
 
 class SidebarLoader {
   static loadSidebar(containerId, sidebarFile = '/Components/sidebar.html') {

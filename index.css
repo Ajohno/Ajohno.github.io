@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+.image-container img{
+    opacity: 1;
+}
+
 /* Layout Styles */
 body {
     display: flex;
@@ -62,7 +66,7 @@ body {
 /* Grid item styling */
 .grid-item {
     
-    color: white;
+    color: #FFE59B;
     padding: 20px;
     font-size: 1.2em;
     text-align: center;
@@ -80,8 +84,32 @@ body {
 
 /* Social Buttons */
 .social-links-buttons button{
-    padding: 10%;
+    padding: 0;               /* Remove extra padding */
+    border: none;             /* Remove border */
+    background: none;         /* Remove default background */
+    display: inline-block;    /* Inline-block to fit the image size */
+    cursor: pointer;          /* Show pointer cursor on hover */
+    width: 20%; /* Fixed width */
+    height: 20%; /* Fixed height */
 }
+
+/* Social Buttons Image */
+.social-links-buttons img{
+    display: block;           /* Remove gaps around the image */
+    width: 100%;              /* Make the image fill the button */
+    height: auto;             /* Maintain aspect ratio */
+   
+    object-fit: cover; /* Ensures the image covers the button area */
+
+}
+
+/* Social Buttons Image */
+.zoom-transition-button:hover img{
+    transform: scale(1.05); /* Slight zoom effect */
+    transition: 0.3s; /* Smooth transition */
+}
+
+
 
 /* Divider Line */
 .hr {
@@ -134,7 +162,7 @@ body {
 
     /* Social Buttons */
     .social-links-buttons button{
-        padding: 40%;
+        padding: 0%;
         height:80%;
         width: 80%;
     }
@@ -182,7 +210,7 @@ body {
 
     /* Social Buttons */
     .social-links-buttons button{
-        padding: 40%;
+        padding: 0%;
         height:80%;
         width: 80%;
     }

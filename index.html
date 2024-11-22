@@ -47,8 +47,8 @@
             margin-left:
             5%;
             style="
-              background-color: #151414;
-              opacity: 50%;
+              text-align: start;
+              background-color: #000000;
               width: 80%;
               margin-left: 10%;
             "
@@ -61,12 +61,7 @@
           </div>
           <!-- Carousel Menu -->
           <div
-            style="
-              background-color: #000000;
-              opacity: 50%;
-              width: 80%;
-              margin-left: 10%;
-            "
+            style="background-color: #000000; width: 80%; margin-left: 10%"
             class="grid-item"
           >
             Carousel Menu
@@ -77,19 +72,57 @@
         <!-- Social Link Buttons -->
         <div class="social-links-buttons">
           <div class="grid-item">
-            <button type="button"></button>
+            <!-- LinkedIn Button -->
+            <div class="zoom-transition-button">
+              <button
+                onclick="window.open('https://www.linkedin.com/in/ajohnojohnson/', '_blank');"
+                type="button"
+              >
+                <!-- LinkedIn Logo -->
+                <img src="/Images/linkedin.png" alt="LinkedIn Button" />
+              </button>
+            </div>
           </div>
+          <!-- Github Button -->
           <div class="grid-item">
-            <button type="button"></button>
+            <div class="zoom-transition-button">
+              <button
+                onclick="window.open('https://github.com/Ajohno', '_blank');"
+                type="button"
+              >
+                <img src="/Images/github.png" alt="LinkedIn Button" />
+              </button>
+            </div>
           </div>
+          <!-- Gmail Button -->
           <div class="grid-item">
-            <button type="button"></button>
+            <div class="zoom-transition-button">
+              <button onclick="sendEmail()" type="button">
+                <img src="/Images/gmail.png" alt="LinkedIn Button" />
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- Scripts -->
+
     <!-- Script to load the sidebar -->
     <script src="/JavaScript/loadSidebar.js"></script>
+
+    <!-- sendEmail function -->
+    <script>
+      function sendEmail() {
+        const email = "acbjohnson2002@gmail.com";
+        const subject = "";
+        const body = "Write your message here!";
+        const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(
+          subject
+        )}&body=${encodeURIComponent(body)}`;
+
+        window.open(mailtoLink, "_blank"); // Opens the mailto link in a new tab
+      }
+    </script>
   </body>
 </html>

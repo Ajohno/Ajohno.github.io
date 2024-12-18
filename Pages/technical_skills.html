@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects</title>
+    <link rel="stylesheet" href="/index.css" />
+  </head>
+  <body>
+    <!-- Sidebar placeholder -->
+    <div id="sidebar-container"></div>
+
+    <div class="main-content">
+      <h1>Technical Skills About Page</h1>
+    </div>
+
+    <!-- About Page Nav Buttons -->
+    <div class="about-nav-buttons">
+      <div class="grid-item">
+        <!--Info Card Button-->
+        <div class="zoom-transition-button">
+          <button id="info-card" type="button">
+            <!-- Info Card Image -->
+            <img src="/Images/intro_card.png" alt="Intro card page" />
+          </button>
+        </div>
+      </div>
+      <!-- Introduction Button -->
+      <div class="grid-item">
+        <div class="zoom-transition-button">
+          <button id="handshake" type="button">
+            <!-- Handshake Image -->
+            <img src="/Images/handshake.png" alt="Meet me button" />
+          </button>
+        </div>
+      </div>
+      <!-- Academic Background Button -->
+      <div class="grid-item">
+        <div class="zoom-transition-button">
+          <button id="academics" type="button">
+            <!-- Graduation cap Image -->
+            <img
+              src="/Images/graduation_cap.png"
+              alt="Academic background button"
+            />
+          </button>
+        </div>
+      </div>
+      <!-- Technical Skills Button -->
+      <div class="grid-item">
+        <div class="zoom-transition-button">
+          <button id="skills" type="button">
+            <!-- Gear and wrench image -->
+            <img src="/Images/technical_skill.png" alt="LinkedIn Button" />
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Script to load the sidebar -->
+    <script src="/JavaScript/loadSidebar.js"></script>
+
+    <!-- Navigate to Info Card Page -->
+    <script>
+      // Add an event listener to the button to navigate to another page
+      document
+        .getElementById("info-card")
+        .addEventListener("click", function () {
+          window.location.href = "/Pages/about.html"; // Specify the page to navigate to
+        });
+    </script>
+
+    <!-- Navigate to Introduction About Page -->
+    <script>
+      // Add an event listener to the button to navigate to another page
+      document
+        .getElementById("handshake")
+        .addEventListener("click", function () {
+          window.location.href = "/Pages/introduction.html"; // Specify the page to navigate to
+        });
+    </script>
+
+    <!-- Navigate to Acaddemic Background About Page -->
+    <script>
+      // Add an event listener to the button to navigate to another page
+      document
+        .getElementById("academics")
+        .addEventListener("click", function () {
+          window.location.href = "/Pages/academics.html"; // Specify the page to navigate to
+        });
+    </script>
+
+    <!-- Navigate to Technical Skills About Page -->
+    <script>
+      // Add an event listener to the button to navigate to another page
+      document.getElementById("skills").addEventListener("click", function () {
+        window.location.href = "/Pages/technical_skills.html"; // Specify the page to navigate to
+      });
+    </script>
+  </body>
+</html>

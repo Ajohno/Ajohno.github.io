@@ -1,0 +1,43 @@
+/* Text Container */
+.name-container {
+    position: relative;
+}
+
+/* Adrian Text Styling */
+.large-text {
+    font-size: 90px; /* Adjust for large size */
+    font-weight: 400; /* Normal weight */
+    color: #000; /* Black text */
+    letter-spacing: -2px; /* Slightly reduce spacing */
+    margin-bottom: -2%;
+}
+
+/* Johnson Text Styling */
+.bold-text {
+    font-size: 100px; /* Slightly larger */
+    font-weight: 700; /* Bold weight */
+    color: #000; /* Black text */
+    letter-spacing: -2px;
+}
+
+/* INtro Section Styling */
+.intro-section{
+    font-size: 24px;
+    margin-left: 5%;
+}
+
+.about-nav-buttons{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Three equal-width columns */
+    grid-gap: 10px; /* Space between items */
+}
+
+.about-nav-buttons button{
+    padding: 0;               /* Remove extra padding */
+    border: none;             /* Remove border */
+    background: none;         /* Remove default background */
+    display: inline-block;    /* Inline-block to fit the image size */
+    cursor: pointer;          /* Show pointer cursor on hover */
+    width: 20%; /* Fixed width */
+    height: 20%; /* Fixed height */
+}

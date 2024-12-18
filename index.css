@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+.image-container img{
+    opacity: 1;
+}
+
 /* Layout Styles */
 body {
     display: flex;
@@ -36,10 +40,6 @@ body {
     z-index: -1; /* Ensure it stays behind content */
 }
 
-.main-content h1 {
-    margin-bottom: 20px;
-}
-
 .main-content p {
     line-height: 1.6;
 }
@@ -66,20 +66,50 @@ body {
 /* Grid item styling */
 .grid-item {
     
-    color: white;
+    color: #FFE59B;
     padding: 20px;
     font-size: 1.2em;
     text-align: center;
     border-radius: 8px;
 }   
 
+/* Bottom Social Buttons Area */
 .social-links-buttons {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Three equal-width columns */
     grid-gap: 10px; /* Space between items */
-    padding: 20px;
-    margin-left: 20%;
+   
+
 }
+
+/* Social Buttons */
+.social-links-buttons button{
+    padding: 0;               /* Remove extra padding */
+    border: none;             /* Remove border */
+    background: none;         /* Remove default background */
+    display: inline-block;    /* Inline-block to fit the image size */
+    cursor: pointer;          /* Show pointer cursor on hover */
+    width: 20%; /* Fixed width */
+    height: 20%; /* Fixed height */
+}
+
+/* Social Buttons Image */
+.social-links-buttons img{
+    display: block;           /* Remove gaps around the image */
+    width: 100%;              /* Make the image fill the button */
+    height: auto;             /* Maintain aspect ratio */
+   
+    object-fit: cover; /* Ensures the image covers the button area */
+
+}
+
+/* Social Buttons Image */
+.zoom-transition-button:hover img{
+    transform: scale(1.05); /* Slight zoom effect */
+    transition: 0.3s; /* Smooth transition */
+}
+
+
 
 /* Divider Line */
 .hr {
@@ -91,58 +121,98 @@ body {
 
 
 /* Responsive Styling for Mobile Devices */
-@media (max-width: 768px) {
+
+@media (max-width: 768px) { /*For tablet size devices*/
     body {
         flex-direction: column;  /* Stack sidebar and content */
         font-size: 10px;
     }
 
-    .grid-container {
+    .main-content .grid-container {
         display: grid;
-        grid-template-columns: repeat(1, 1fr); /* Three equal-width columns */
+        grid-template-columns: repeat(1, 1fr); /* One column */
         grid-gap: 10px; /* Space between items */
+        padding: 20px;        
+    }
+
+    /* Grid item styling */
+    .grid-item {
+        color: white;
         padding: 20px;
-        margin-left: 5%;
-        
-    }
-
-    .h1 {
-        font-size: 30px;
-    }
-
+        font-size: 20px;
+        text-align: center;
+        border-radius: 8px;
+    } 
     
-
-    .sidebar {
-        width: 100%;
-        height: auto;
-        padding: 10px;
-        position: relative;
-        box-sizing: border-box;
+    .main-content p {
+        font-size: 30px; /* Adjust paragraph text for readability */
     }
 
-    .sidebar ul li {
-        margin: 10px 0;
-    }
 
     .main-content {
-        padding: 10px;
         background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
-        margin-top: 20px;  /* Space between sidebar and content */
+    }
+
+    /* Bottom Social Buttons Area */
+    .social-links-buttons {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Three equal-width columns */
+        grid-gap: 10px; /* Space between items */
+    }
+
+    /* Social Buttons */
+    .social-links-buttons button{
+        padding: 0%;
+        height:80%;
+        width: 80%;
     }
     
 }
 
-@media (max-width: 480px) {
-    .sidebar ul li a {
-        font-size: 14px; /* Smaller font size on very small screens */
+@media (max-width: 480px) { /*For phone size devices*/
+
+    body {
+        flex-direction: column;  /* Stack sidebar and content */
+        font-size: 10px;
     }
 
-    .main-content h1 {
-        font-size: 18px; /* Adjust main heading size */
+    .main-content .grid-container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr); /* One column */
+        grid-gap: 10px; /* Space between items */
+        padding: 20px;        
     }
+
+    /* Grid item styling */
+    .grid-item {
+        color: white;
+        padding: 20px;
+        font-size: 20px;
+        text-align: center;
+        border-radius: 8px;
+    }   
 
     .main-content p {
         font-size: 30px; /* Adjust paragraph text for readability */
+    }
+
+    .main-content {
+        background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
+    }
+
+    /* Bottom Social Buttons Area */
+    .social-links-buttons {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Three equal-width columns */
+        grid-gap: 10px; /* Space between items */      
+        
+    }
+
+    /* Social Buttons */
+    .social-links-buttons button{
+        padding: 0%;
+        height:80%;
+        width: 80%;
     }
 
 

@@ -1,0 +1,57 @@
+/* src/components/Sidebar.css */
+.sidebar {
+    width: 200px;
+    height: 100vh;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    padding-top: 20px;
+  }
+  
+  .sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar nav ul li {
+    margin: 20px 0;
+  }
+  
+  .sidebar nav ul li a {
+    color: rgb(235, 0, 0);
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+  }
+  
+  .sidebar nav ul li a:hover {
+    background-color: #575757;
+  }
+  
+  /* Content styles */
+  .content {
+    margin-left: 220px;  /* Adjust based on sidebar width */
+    padding: 20px;
+  }
+
+  /* Make sure the sidebar is not hidden */
+.sidebar {
+    width: 200px;
+    height: 100vh;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    padding-top: 20px;
+  }
+  
+  .content {
+    margin-left: 220px;  /* Ensure this is enough space for the sidebar */
+    padding: 20px;
+  }
+  
+  

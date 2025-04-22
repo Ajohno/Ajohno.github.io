@@ -1,0 +1,14 @@
+[
+  {
+    "heading": "Campion College",
+    "description": "High school in Kingston, Jamaica. Graduated in 2021.",
+    "image": "/Images/high_school.png",
+    "alt-text": "Campion College Logo"
+},
+{
+    "heading": "Worcester Polytechnic Institute",
+    "description": "College attended in Worcester, MA. Graduated in 2025.",
+    "image": "/Images/college.png",
+    "alt-text": "WPI Logo"
+}  
+]

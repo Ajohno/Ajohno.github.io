@@ -62,4 +62,6 @@
     justify-items: center;
     grid-template-columns: repeat(3, 1fr); /* Three equal-width columns */
     grid-gap: 10px; /* Space between items */
+    margin-bottom: 5%;
+    margin-top: 5%;
 }

@@ -3,56 +3,72 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projects</title>
+    <title>About Me</title>
     <link rel="stylesheet" href="/index.css" />
+    <link rel="stylesheet" href="/CSS/about.css" />
+    <link rel="stylesheet" href="/CSS/info_card.css" />
   </head>
   <body>
     <!-- Sidebar placeholder -->
     <div id="sidebar-container"></div>
 
     <div class="main-content">
-      <h1>Academics About Page</h1>
-    </div>
+      <!-- Transparent Box -->
+      <div class="infobox">
+        <!-- Divider Line -->
+        <hr />
 
-    <!-- About Page Nav Buttons -->
-    <div class="about-nav-buttons">
-      <div class="grid-item">
-        <!--Info Card Button-->
-        <div class="zoom-transition-button">
-          <button id="info-card" type="button">
-            <!-- Info Card Image -->
-            <img src="/Images/intro_card.png" alt="Intro card page" />
-          </button>
+        <!-- Header -->
+        <div class="Header-section">
+          <h1 class="Header">Academic Background</h1>
         </div>
-      </div>
-      <!-- Introduction Button -->
-      <div class="grid-item">
-        <div class="zoom-transition-button">
-          <button id="handshake" type="button">
-            <!-- Handshake Image -->
-            <img src="/Images/handshake.png" alt="Meet me button" />
-          </button>
-        </div>
-      </div>
-      <!-- Academic Background Button -->
-      <div class="grid-item">
-        <div class="zoom-transition-button">
-          <button id="academics" type="button">
-            <!-- Graduation cap Image -->
-            <img
-              src="/Images/graduation_cap.png"
-              alt="Academic background button"
-            />
-          </button>
-        </div>
-      </div>
-      <!-- Technical Skills Button -->
-      <div class="grid-item">
-        <div class="zoom-transition-button">
-          <button id="skills" type="button">
-            <!-- Gear and wrench image -->
-            <img src="/Images/technical_skill.png" alt="LinkedIn Button" />
-          </button>
+
+        <!-- Card Section -->
+        <div class="card-section"></div>
+
+        <!-- Divider Line -->
+        <hr />
+        <!-- About Page Nav Buttons -->
+        <div class="about-nav-buttons">
+          <div class="grid-item">
+            <!--Info Card Button-->
+            <div class="zoom-transition-button">
+              <button id="info-card" type="button">
+                <!-- Info Card Image -->
+                <img src="/Images/intro_card.png" alt="Intro card page" />
+              </button>
+            </div>
+          </div>
+          <!-- Introduction Button -->
+          <div class="grid-item">
+            <div class="zoom-transition-button">
+              <button id="handshake" type="button">
+                <!-- Handshake Image -->
+                <img src="/Images/handshake.png" alt="Meet me button" />
+              </button>
+            </div>
+          </div>
+          <!-- Academic Background Button -->
+          <div class="grid-item">
+            <div class="zoom-transition-button">
+              <button id="academics" type="button">
+                <!-- Graduation cap Image -->
+                <img
+                  src="/Images/graduation_cap.png"
+                  alt="Academic background button"
+                />
+              </button>
+            </div>
+          </div>
+          <!-- Technical Skills Button -->
+          <div class="grid-item">
+            <div class="zoom-transition-button">
+              <button id="skills" type="button">
+                <!-- Gear and wrench image -->
+                <img src="/Images/technical_skill.png" alt="LinkedIn Button" />
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -97,5 +113,7 @@
         window.location.href = "/Pages/technical_skills.html"; // Specify the page to navigate to
       });
     </script>
+
+    <!-- Load info card -->
   </body>
 </html>

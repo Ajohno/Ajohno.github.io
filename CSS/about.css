@@ -41,3 +41,25 @@
     width: 20%; /* Fixed width */
     height: 20%; /* Fixed height */
 }
+
+/* Header area at the top */
+.Header-section{
+    justify-items: center;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+/*  */
+.Header-section h1{
+    font-size: 75px; /* Adjust for large size */
+    font-weight: 400; /* Normal weight */
+    color: #000; /* Black text */
+}
+
+/* Section with info cards */
+.card-section{
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(3, 1fr); /* Three equal-width columns */
+    grid-gap: 10px; /* Space between items */
+}

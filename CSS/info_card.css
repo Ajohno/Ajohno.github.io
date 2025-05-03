@@ -14,6 +14,7 @@
     background-color: #000; /* Black background */
     border-radius: 20px; /* Rounded corners */
     width: 250px; /* Fixed card width */
+    height: 300px;
     color: #fef3b3; /* Light yellow text */
     padding: 16px; /* Inner padding */
     font-family: sans-serif; /* Sans-serif font */
@@ -21,6 +22,7 @@
     flex-direction: column;
     align-items: center; /* Center-align content */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+
   }
   
   /* Styling for the card image */
@@ -51,8 +53,11 @@
     color: #fef3b3; /* Light yellow text */
   }
   
+
+
   /* Styling for the "See More" button */
   .Expand-Button button {
+    
     background-color: #fef3b3; /* Light yellow background */
     color: black; /* Black text */
     border: none; /* Remove border */
@@ -67,4 +72,9 @@
   /* Hover effect for the button */
   .Expand-Button button:hover {
     background-color: #fce887; /* Slightly darker yellow on hover */
+  }
+
+  /* Main-section of the card */
+  .main-section {
+    height: 100%;
   }

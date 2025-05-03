@@ -6,6 +6,7 @@
     <title>About Me</title>
     <link rel="stylesheet" href="/index.css" />
     <link rel="stylesheet" href="/CSS/about.css" />
+    <link rel="stylesheet" href="/CSS/info_card.css" />
   </head>
   <body>
     <!-- Sidebar placeholder -->
@@ -23,7 +24,22 @@
         </div>
 
         <!-- Intro Section -->
-        <div class="card-section"></div>
+        <!-- Card Section -->
+        <div class="card-section" id="card-section">
+          <!-- Info cards will be dynamically loaded here from the json file -->
+        </div>
+
+        <!-- Hidden template for the card component -->
+        <div id="card-template" style="display: none">
+          <div class="background">
+            <div class="main-section">
+              <!-- <div class="card-image"></div> -->
+              <div class="Heading"></div>
+              <div class="Description"></div>
+              <div class="Expand-Button"></div>
+            </div>
+          </div>
+        </div>
         <!-- Divider Line -->
         <hr />
         <!-- About Page Nav Buttons -->
@@ -71,6 +87,8 @@
       </div>
     </div>
 
+    <!-- ------------------------------------------------------------------------------------- -->
+
     <!-- Script to load the sidebar -->
     <script src="/JavaScript/loadSidebar.js"></script>
 
@@ -110,6 +128,47 @@
       document.getElementById("skills").addEventListener("click", function () {
         window.location.href = "/Pages/technical_skills.html"; // Specify the page to navigate to
       });
+    </script>
+
+    <!-- Script to load the info cards from JSON file -->
+    <script>
+      // Fetch the JSON file and dynamically create info cards
+      fetch("/data/technical_skills_info_cards.json")
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Failed to load technical_skills_info_cards.json");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          const cardSection = document.getElementById("card-section");
+          const cardTemplate =
+            document.getElementById("card-template").firstElementChild;
+
+          data.forEach((card) => {
+            // Clone the card template
+            const cardClone = cardTemplate.cloneNode(true);
+
+            // Populate the card with data
+            //const cardImage = cardClone.querySelector(".card-image");
+            //cardImage.style.backgroundImage = `url(${card.image})`;
+            //cardImage.setAttribute("alt", card["alt-text"]);
+
+            cardClone.querySelector(".Heading").textContent = card.heading;
+            cardClone.querySelector(".Description").textContent =
+              card.description;
+
+            // Optional: Add a "See More" button if needed
+            const expandButton = cardClone.querySelector(".Expand-Button");
+            expandButton.innerHTML = `<button>See More</button>`;
+
+            // Append the card to the card section
+            cardSection.appendChild(cardClone);
+          });
+        })
+        .catch((error) => {
+          console.error("Error loading info cards:", error);
+        });
     </script>
   </body>
 </html>

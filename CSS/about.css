@@ -57,11 +57,13 @@
 }
 
 /* Section with info cards */
-.card-section{
-    display: grid;
-    justify-items: center;
-    grid-template-columns: repeat(3, 1fr); /* Three equal-width columns */
-    grid-gap: 10px; /* Space between items */
-    margin-bottom: 5%;
-    margin-top: 5%;
+.card-section {
+  display: flex; /* Use flexbox for layout */
+  flex-wrap: wrap; /* Allow cards to wrap to the next row */
+  gap: 16px; /* Add spacing between cards */
+  justify-content: center; /* Center the cards horizontally */
+  align-items: flex-start; /* Align cards to the top */
+  padding: 16px; /* Add padding around the section */
+  width: 100%; /* Ensure it takes the full width of the container */
+  box-sizing: border-box; /* Include padding in the width calculation */
 }

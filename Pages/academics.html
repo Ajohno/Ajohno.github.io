@@ -32,7 +32,7 @@
         <div id="card-template" style="display: none">
           <div class="background">
             <div class="main-section">
-              <div class="card-image"></div>
+              <!-- <div class="card-image"></div> -->
               <div class="Heading"></div>
               <div class="Description"></div>
               <div class="Expand-Button"></div>
@@ -109,9 +109,9 @@
             const cardClone = cardTemplate.cloneNode(true);
 
             // Populate the card with data
-            const cardImage = cardClone.querySelector(".card-image");
-            cardImage.style.backgroundImage = `url(${card.image})`;
-            cardImage.setAttribute("alt", card["alt-text"]);
+            //const cardImage = cardClone.querySelector(".card-image");
+            //cardImage.style.backgroundImage = `url(${card.image})`;
+            //cardImage.setAttribute("alt", card["alt-text"]);
 
             cardClone.querySelector(".Heading").textContent = card.heading;
             cardClone.querySelector(".Description").textContent =

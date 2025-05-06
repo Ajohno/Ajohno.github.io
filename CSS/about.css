@@ -67,3 +67,35 @@
   width: 100%; /* Ensure it takes the full width of the container */
   box-sizing: border-box; /* Include padding in the width calculation */
 }
+
+/* Responsive Styling for Mobile Devices */
+
+@media (max-width: 768px) { /*For tablet size devices (portrait)*/
+    
+    
+}
+
+@media (max-width: 768px) { /*For tablet size devices (landscape)*/
+    
+    
+}
+
+@media (max-width: 480px) { /*For phone size devices (portrait)*/
+    
+    .about-nav-buttons{
+        display: grid;
+        justify-self: self-start;
+        grid-template-columns: repeat(2, 1fr); /* Three equal-width columns */
+        grid-gap: 5px; /* Space between items */
+    }
+    
+    
+
+
+}
+@media (max-width: 915) { /*For phone size devices (landscape)*/
+
+    
+
+
+}

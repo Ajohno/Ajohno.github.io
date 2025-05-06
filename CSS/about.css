@@ -1,0 +1,101 @@
+/* Text Container */
+.name-container {
+    position: relative;
+}
+
+/* Adrian Text Styling */
+.large-text {
+    font-size: 90px; /* Adjust for large size */
+    font-weight: 400; /* Normal weight */
+    color: #000; /* Black text */
+    letter-spacing: -2px; /* Slightly reduce spacing */
+    margin-bottom: -2%;
+}
+
+/* Johnson Text Styling */
+.bold-text {
+    font-size: 100px; /* Slightly larger */
+    font-weight: 700; /* Bold weight */
+    color: #000; /* Black text */
+    letter-spacing: -2px;
+}
+
+/* INtro Section Styling */
+.intro-section{
+    font-size: 24px;
+    margin-left: 5%;
+}
+
+.about-nav-buttons{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Three equal-width columns */
+    grid-gap: 10px; /* Space between items */
+}
+
+.about-nav-buttons button{
+    padding: 0;               /* Remove extra padding */
+    border: none;             /* Remove border */
+    background: none;         /* Remove default background */
+    display: inline-block;    /* Inline-block to fit the image size */
+    cursor: pointer;          /* Show pointer cursor on hover */
+    width: 20%; /* Fixed width */
+    height: 20%; /* Fixed height */
+}
+
+/* Header area at the top */
+.Header-section{
+    justify-items: center;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+/*  */
+.Header-section h1{
+    font-size: 75px; /* Adjust for large size */
+    font-weight: 400; /* Normal weight */
+    color: #000; /* Black text */
+}
+
+/* Section with info cards */
+.card-section {
+  display: flex; /* Use flexbox for layout */
+  flex-wrap: wrap; /* Allow cards to wrap to the next row */
+  gap: 16px; /* Add spacing between cards */
+  justify-content: center; /* Center the cards horizontally */
+  align-items: flex-start; /* Align cards to the top */
+  padding: 16px; /* Add padding around the section */
+  width: 100%; /* Ensure it takes the full width of the container */
+  box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+/* Responsive Styling for Mobile Devices */
+
+@media (max-width: 768px) { /*For tablet size devices (portrait)*/
+    
+    
+}
+
+@media (max-width: 768px) { /*For tablet size devices (landscape)*/
+    
+    
+}
+
+@media (max-width: 480px) { /*For phone size devices (portrait)*/
+    
+    .about-nav-buttons{
+        display: grid;
+        justify-self: self-start;
+        grid-template-columns: repeat(2, 1fr); /* Three equal-width columns */
+        grid-gap: 5px; /* Space between items */
+    }
+    
+    
+
+
+}
+@media (max-width: 915) { /*For phone size devices (landscape)*/
+
+    
+
+
+}

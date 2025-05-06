@@ -6,6 +6,7 @@
     <title>About Me</title>
     <link rel="stylesheet" href="/index.css" />
     <link rel="stylesheet" href="/CSS/about.css" />
+    <link rel="stylesheet" href="/CSS/info_card.css" />
   </head>
   <body>
     <!-- Sidebar placeholder -->
@@ -17,27 +18,27 @@
         <!-- Divider Line -->
         <hr />
 
-        <!-- Headshot Image -->
-        <div style="justify-self: center; margin-top: 10px">
-          <img
-            src="/Images/Headshot.png"
-            alt="Adrian Johnson Headshot"
-            width="80%"
-            height="90%"
-          />
-        </div>
-
-        <!-- Name -->
-        <div class="name-container">
-          <h1 class="large-text">Adrian</h1>
-          <h1 class="bold-text">&ensp;Johnson</h1>
+        <!-- Header -->
+        <div class="Header-section">
+          <h1 class="Header">Technical Skills</h1>
         </div>
 
         <!-- Intro Section -->
-        <div class="intro-section">
-          <p>Senior College Student at Worcester Polytechnic Institute</p>
-          <p>Major: Computer Science</p>
-          <p>Minor: Interactive Media & Game Design</p>
+        <!-- Card Section -->
+        <div class="card-section" id="card-section">
+          <!-- Info cards will be dynamically loaded here from the json file -->
+        </div>
+
+        <!-- Hidden template for the card component -->
+        <div id="card-template" style="display: none">
+          <div class="background">
+            <div class="main-section">
+              <!-- <div class="card-image"></div> -->
+              <div class="Heading"></div>
+              <div class="Description"></div>
+              <div class="Expand-Button"></div>
+            </div>
+          </div>
         </div>
         <!-- Divider Line -->
         <hr />
@@ -86,6 +87,8 @@
       </div>
     </div>
 
+    <!-- ------------------------------------------------------------------------------------- -->
+
     <!-- Script to load the sidebar -->
     <script src="/JavaScript/loadSidebar.js"></script>
 
@@ -124,6 +127,16 @@
       // Add an event listener to the button to navigate to another page
       document.getElementById("skills").addEventListener("click", function () {
         window.location.href = "/Pages/technical_skills.html"; // Specify the page to navigate to
+      });
+    </script>
+
+    <!-- Script to load the info cards from JSON file -->
+    <script src="../JavaScript/infoCardLoader.js"></script>
+    <script>
+      loadInfoCards({
+        jsonPath: "../data/technical_skills_info_cards.json",
+        cardTemplateId: "card-template",
+        cardSectionId: "card-section",
       });
     </script>
   </body>

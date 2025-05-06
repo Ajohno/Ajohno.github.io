@@ -3,22 +3,103 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Work Experience</title>
+    <title>About Me</title>
     <link rel="stylesheet" href="/index.css" />
+    <link rel="stylesheet" href="/CSS/about.css" />
+    <link rel="stylesheet" href="/CSS/info_card.css" />
   </head>
   <body>
     <!-- Sidebar placeholder -->
     <div id="sidebar-container"></div>
 
     <div class="main-content">
-      <h1>Work Experience</h1>
-      <p>
-        This is the About page. You can include information about yourself or
-        your project here.
-      </p>
+      <!-- Transparent Box -->
+      <div class="infobox">
+        <!-- Divider Line -->
+        <hr />
+
+        <!-- Header -->
+        <div class="Header-section">
+          <h1 class="Header">Work Experience</h1>
+        </div>
+
+        <!-- Card Section -->
+        <div class="card-section" id="card-section">
+          <!-- Info cards will be dynamically loaded here from the json file -->
+        </div>
+
+        <!-- Hidden template for the card component -->
+        <div id="card-template" style="display: none">
+          <div class="background">
+            <div class="main-section">
+              <!-- <div class="card-image"></div> -->
+              <div class="Heading"></div>
+              <b>Position:</b>
+              <div class="Position"></div>
+              <div class="Description"></div>
+              <div class="Expand-Button"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Divider Line -->
+        <hr />
+      </div>
     </div>
+
+    <!-- ------------------------------------------------------------------------------------- -->
+
+    <!-- Script to load the info cards from JSON file -->
+    <script src="../JavaScript/infoCardLoader.js"></script>
+    <script>
+      loadInfoCards({
+        jsonPath: "../data/experience_info_cards.json",
+        cardTemplateId: "card-template",
+        cardSectionId: "card-section",
+      });
+    </script>
 
     <!-- Script to load the sidebar -->
     <script src="/JavaScript/loadSidebar.js"></script>
+
+    <!-- Navigate to Info Card Page -->
+    <script>
+      // Add an event listener to the button to navigate to another page
+      document
+        .getElementById("info-card")
+        .addEventListener("click", function () {
+          window.location.href = "/Pages/about.html"; // Specify the page to navigate to
+        });
+    </script>
+
+    <!-- Navigate to Introduction About Page -->
+    <script>
+      // Add an event listener to the button to navigate to another page
+      document
+        .getElementById("handshake")
+        .addEventListener("click", function () {
+          window.location.href = "/Pages/introduction.html"; // Specify the page to navigate to
+        });
+    </script>
+
+    <!-- Navigate to Acaddemic Background About Page -->
+    <script>
+      // Add an event listener to the button to navigate to another page
+      document
+        .getElementById("academics")
+        .addEventListener("click", function () {
+          window.location.href = "/Pages/academics.html"; // Specify the page to navigate to
+        });
+    </script>
+
+    <!-- Navigate to Technical Skills About Page -->
+    <script>
+      // Add an event listener to the button to navigate to another page
+      document.getElementById("skills").addEventListener("click", function () {
+        window.location.href = "/Pages/technical_skills.html"; // Specify the page to navigate to
+      });
+    </script>
+
+    <!-- Load info card -->
   </body>
 </html>

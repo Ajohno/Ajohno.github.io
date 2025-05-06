@@ -1,0 +1,21 @@
+[
+    {
+      "heading": "React",
+      "description": "JavaScript library for building user interfaces.",
+      "image": "/Images/high_school.png",
+      "alt-text": "React Logo"
+  },
+  {
+      "heading": "Tailwind CSS",
+      "description": "Utility-first CSS framework for creating custom designs.",
+      "image": "/Images/college.png",
+      "alt-text": "Tailwind CSS Logo"
+  },
+  {
+    "heading": "MongoDB",
+    "description": "NoSQL database for storing data in JSON-like format.",
+    "image": "/Images/prep_school.png",
+    "alt-text": "MongoDB Logo"
+  }
+  ]
+  

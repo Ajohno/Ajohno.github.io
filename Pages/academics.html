@@ -6,6 +6,7 @@
     <title>About Me</title>
     <link rel="stylesheet" href="/index.css" />
     <link rel="stylesheet" href="/CSS/about.css" />
+    <link rel="stylesheet" href="/CSS/info_card.css" />
   </head>
   <body>
     <!-- Sidebar placeholder -->
@@ -17,28 +18,40 @@
         <!-- Divider Line -->
         <hr />
 
-        <!-- Headshot Image -->
-        <div style="justify-self: center; margin-top: 10px">
-          <img
-            src="/Images/Headshot.png"
-            alt="Adrian Johnson Headshot"
-            width="80%"
-            height="90%"
-          />
+        <!-- Header -->
+        <div class="Header-section">
+          <h1 class="Header">Academic Background</h1>
         </div>
 
-        <!-- Name -->
-        <div class="name-container">
-          <h1 class="large-text">Adrian</h1>
-          <h1 class="bold-text">&ensp;Johnson</h1>
+        <!-- Card Section -->
+        <div class="card-section" id="card-section">
+          <!-- Info cards will be dynamically loaded here from the json file -->
         </div>
 
-        <!-- Intro Section -->
-        <div class="intro-section">
-          <p>Senior College Student at Worcester Polytechnic Institute</p>
-          <p>Major: Computer Science</p>
-          <p>Minor: Interactive Media & Game Design</p>
+        <!-- Hidden template for the card component -->
+        <div id="card-template" style="display: none">
+          <div class="background">
+            <div class="main-section">
+              <!-- <div class="card-image"></div> -->
+              <div class="Heading"></div>
+              <div class="Description"></div>
+              <div class="Expand-Button"></div>
+            </div>
+          </div>
         </div>
+
+        <!-- Modal Structure -->
+        <div id="info-modal" class="modal" style="display: none">
+          <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modal-heading"></h2>
+            <img id="modal-image" src="" alt="" />
+            <p id="modal-description"></p>
+            <p id="modal-additional-info"></p>
+            <p id="modal-achievements"></p>
+          </div>
+        </div>
+
         <!-- Divider Line -->
         <hr />
         <!-- About Page Nav Buttons -->
@@ -86,6 +99,57 @@
       </div>
     </div>
 
+    <!-- ------------------------------------------------------------------------------------- -->
+
+    <!-- Script to load the info cards from JSON file -->
+    <script src="../JavaScript/infoCardLoader.js"></script>
+    <script>
+      loadInfoCards({
+        jsonPath: "../data/academics_info_cards.json",
+        cardTemplateId: "card-template",
+        cardSectionId: "card-section",
+      });
+    </script>
+    <!-- <script>
+      // Fetch the JSON file and dynamically create info cards
+      fetch("/data/academics_info_cards.json")
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Failed to load academics_info_cards.json");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          const cardSection = document.getElementById("card-section");
+          const cardTemplate =
+            document.getElementById("card-template").firstElementChild;
+
+          data.forEach((card) => {
+            // Clone the card template
+            const cardClone = cardTemplate.cloneNode(true);
+
+            // Populate the card with data
+            //const cardImage = cardClone.querySelector(".card-image");
+            //cardImage.style.backgroundImage = `url(${card.image})`;
+            //cardImage.setAttribute("alt", card["alt-text"]);
+
+            cardClone.querySelector(".Heading").textContent = card.heading;
+            cardClone.querySelector(".Description").textContent =
+              card.description;
+
+            // Optional: Add a "See More" button if needed
+            const expandButton = cardClone.querySelector(".Expand-Button");
+            expandButton.innerHTML = `<button>See More</button>`;
+
+            // Append the card to the card section
+            cardSection.appendChild(cardClone);
+          });
+        })
+        .catch((error) => {
+          console.error("Error loading info cards:", error);
+        });
+    </script> -->
+
     <!-- Script to load the sidebar -->
     <script src="/JavaScript/loadSidebar.js"></script>
 
@@ -126,5 +190,7 @@
         window.location.href = "/Pages/technical_skills.html"; // Specify the page to navigate to
       });
     </script>
+
+    <!-- Load info card -->
   </body>
 </html>

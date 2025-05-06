@@ -44,20 +44,46 @@
     font-weight: bold; /* Bold text */
     margin: 0; /* Remove default margin */
     color: #fef3b3; /* Light yellow text */
+    padding: 4%;
+    text-decoration: underline; /* Underlined text */
   }
   
+  .Position {
+    font-size: 1rem; /* Standard font size */
+    color: #fef3b3; /* Light yellow text */
+    margin: 0; /* Remove default margin */
+    padding-bottom: 6%;
+  }
+
   /* Styling for the description */
   .Description {
-    margin: 8px 0 16px; /* Space above and below the description */
+    /* margin: 8px 0 16px; Space above and below the description */
+    padding-top: 4%;
+    padding-bottom: 4%;
     font-size: 1rem; /* Standard font size */
     color: #fef3b3; /* Light yellow text */
   }
   
+  /* Styling for the info card link */
+  .Link a{
+    color: #e1ce5d; /* Light yellow text */
+    font-size: 1rem; /* Standard font size */
+    font-weight: 500; /* Medium font weight */
+    
+  }
 
+  /* Styling for the info card link when hovering */
+  .Link a:hover{
+    color: #fef3b3; /* Light yellow text */
+    font-size: 1rem; /* Standard font size */
+    font-weight: 500; /* Medium font weight */
+    
+  }
 
   /* Styling for the "See More" button */
   .Expand-Button button {
-    
+    justify-self: baseline;
+    margin-top: 4%;
     background-color: #fef3b3; /* Light yellow background */
     color: black; /* Black text */
     border: none; /* Remove border */

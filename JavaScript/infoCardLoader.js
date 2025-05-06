@@ -43,15 +43,15 @@ function loadInfoCards({ jsonPath, cardTemplateId, cardSectionId }) {
         }
 
         // Link
-        const linkElement = cardClone.querySelector(".Link");
-        if (linkElement && card.link) {
-        const anchor = document.createElement("a");
-        anchor.href = card.link;
-        anchor.textContent = card.linkText || "View Project";
-        anchor.target = "_blank"; // Open link in a new tab
-        anchor.rel = "noopener noreferrer"; // Security best practice
-        linkElement.appendChild(anchor);
-        }
+    const linkElement = cardClone.querySelector(".Link");
+    if (linkElement && card.link) {
+    const anchor = document.createElement("a");
+    anchor.href = card.link;
+    anchor.textContent = card.linkText || "View Project";
+    anchor.target = "_blank"; // Open link in a new tab
+    anchor.rel = "noopener noreferrer"; // Security best practice
+    linkElement.appendChild(anchor);
+    }
 
         // Expand Button
         const expandButton = cardClone.querySelector(".Expand-Button");

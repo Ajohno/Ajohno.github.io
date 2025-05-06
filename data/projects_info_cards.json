@@ -1,0 +1,17 @@
+[
+    {
+      "heading": "Donezo",
+      "description": "Todo list web application built with React.",
+      "link": "https://donezo-task-list.glitch.me/",
+      "image": "/Images/high_school.png",
+      "alt-text": "Donezo Screenshot"
+  },
+  {
+    "heading": "Boston Freedom Trail Web App",
+    "description": "Web application that provides information about the Boston Freedom Trail and is interactive.",
+    "link": "https://freedom-trail-tour.vercel.app/",
+    "image": "/Images/high_school.png",
+    "alt-text": "Boston Freedom Trail Screenshot"
+}
+  ]
+  

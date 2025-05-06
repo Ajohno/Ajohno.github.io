@@ -41,3 +41,61 @@
     width: 20%; /* Fixed width */
     height: 20%; /* Fixed height */
 }
+
+/* Header area at the top */
+.Header-section{
+    justify-items: center;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+/*  */
+.Header-section h1{
+    font-size: 75px; /* Adjust for large size */
+    font-weight: 400; /* Normal weight */
+    color: #000; /* Black text */
+}
+
+/* Section with info cards */
+.card-section {
+  display: flex; /* Use flexbox for layout */
+  flex-wrap: wrap; /* Allow cards to wrap to the next row */
+  gap: 16px; /* Add spacing between cards */
+  justify-content: center; /* Center the cards horizontally */
+  align-items: flex-start; /* Align cards to the top */
+  padding: 16px; /* Add padding around the section */
+  width: 100%; /* Ensure it takes the full width of the container */
+  box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+/* Responsive Styling for Mobile Devices */
+
+@media (max-width: 768px) { /*For tablet size devices (portrait)*/
+    
+    
+}
+
+@media (max-width: 768px) { /*For tablet size devices (landscape)*/
+    
+    
+}
+
+@media (max-width: 480px) { /*For phone size devices (portrait)*/
+    
+    .about-nav-buttons{
+        display: grid;
+        justify-self: self-start;
+        grid-template-columns: repeat(2, 1fr); /* Three equal-width columns */
+        grid-gap: 5px; /* Space between items */
+    }
+    
+    
+
+
+}
+@media (max-width: 915) { /*For phone size devices (landscape)*/
+
+    
+
+
+}

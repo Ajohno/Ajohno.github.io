@@ -122,7 +122,7 @@ body {
 
 /* Responsive Styling for Mobile Devices */
 
-@media (max-width: 768px) { /*For tablet size devices*/
+@media (max-width: 768px) { /*For tablet size devices (portrait)*/
     body {
         flex-direction: column;  /* Stack sidebar and content */
         font-size: 10px;
@@ -169,7 +169,108 @@ body {
     
 }
 
-@media (max-width: 480px) { /*For phone size devices*/
+@media (max-width: 768px) { /*For tablet size devices (landscape)*/
+    body {
+        flex-direction: column;  /* Stack sidebar and content */
+        font-size: 10px;
+    }
+
+    .main-content .grid-container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr); /* One column */
+        grid-gap: 10px; /* Space between items */
+        padding: 20px;        
+    }
+
+    /* Grid item styling */
+    .grid-item {
+        color: white;
+        padding: 20px;
+        font-size: 20px;
+        text-align: center;
+        border-radius: 8px;
+    } 
+    
+    .main-content p {
+        font-size: 30px; /* Adjust paragraph text for readability */
+    }
+
+
+    .main-content {
+        background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
+    }
+
+    /* Bottom Social Buttons Area */
+    .social-links-buttons {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Three equal-width columns */
+        grid-gap: 10px; /* Space between items */
+    }
+
+    /* Social Buttons */
+    .social-links-buttons button{
+        padding: 0%;
+        height:80%;
+        width: 80%;
+    }
+    
+}
+
+@media (max-width: 480px) { /*For phone size devices (portrait)*/
+
+    body {
+        flex-direction: column;  /* Stack sidebar and content */
+        font-size: 10px;
+    }
+
+    .main-content .grid-container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr); /* One column */
+        grid-gap: 10px; /* Space between items */
+        padding: 20px;  
+        justify-content: center;      
+    }
+
+    
+    
+    /* Grid item styling */
+    .grid-item {
+        color: white;
+        padding: 20px;
+        font-size: 20px;
+        text-align: center;
+        border-radius: 8px;
+    } 
+    
+
+    .main-content p {
+        padding: 0;
+        font-size: 30px; /* Adjust paragraph text for readability */
+        
+    }
+
+    .main-content {
+        background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
+    }
+
+    /* Bottom Social Buttons Area */
+    .social-links-buttons {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Three equal-width columns */
+        grid-gap: 10px; /* Space between items */      
+        
+    }
+
+    /* Social Buttons */
+    .social-links-buttons button{
+        padding: 0%;
+        height:80%;
+        width: 80%;
+    }
+
+
+}
+@media (max-width: 915) { /*For phone size devices (landscape)*/
 
     body {
         flex-direction: column;  /* Stack sidebar and content */

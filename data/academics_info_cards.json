@@ -4,17 +4,17 @@
     "description": "College attended in Worcester, MA. Graduated in 2025.",
     "image": "/Images/college.png",
     "alt-text": "WPI Logo"
-},
+  },
   {
     "heading": "Campion College",
     "description": "High school in Kingston, Jamaica. Graduated in 2021.",
     "image": "/Images/high_school.png",
     "alt-text": "Campion College Logo"
-},
-{
-  "heading": "St. Hugh's Preparatory School",
-  "description": "Preparatory school in Kingston, Jamaica.",
-  "image": "/Images/prep_school.png",
-  "alt-text": "WPI Logo"
-}
+  },
+  {
+    "heading": "St. Hugh's Preparatory School",
+    "description": "Preparatory school in Kingston, Jamaica.",
+    "image": "/Images/prep_school.png",
+    "alt-text": "WPI Logo"
+  }
 ]

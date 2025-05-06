@@ -90,7 +90,15 @@
     <!-- ------------------------------------------------------------------------------------- -->
 
     <!-- Script to load the info cards from JSON file -->
+    <script src="../JavaScript/infoCardLoader.js"></script>
     <script>
+      loadInfoCards({
+        jsonPath: "../data/academics_info_cards.json",
+        cardTemplateId: "card-template",
+        cardSectionId: "card-section",
+      });
+    </script>
+    <!-- <script>
       // Fetch the JSON file and dynamically create info cards
       fetch("/data/academics_info_cards.json")
         .then((response) => {
@@ -128,7 +136,7 @@
         .catch((error) => {
           console.error("Error loading info cards:", error);
         });
-    </script>
+    </script> -->
 
     <!-- Script to load the sidebar -->
     <script src="/JavaScript/loadSidebar.js"></script>

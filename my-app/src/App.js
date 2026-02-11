@@ -1,7 +1,7 @@
-// src/App.js
 import React from 'react';
-import { HashRouter as Router, Route, Routes, BrowserRouter } from 'react-router-dom';
-import Sidebar from './components/Sidebar'; 
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
+import Sidebar from './components/Sidebar';
 import HomePage from './components/HomePage';
 import AboutPage from './components/AboutPage';
 import ExperiencePage from './components/ExperiencePage';
@@ -11,11 +11,10 @@ import './App.css';
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <div className="App">
-        <Sidebar/>
+        <Sidebar />
         <div className="content">
-        <BrowserRouter basename="ajohno.github.io">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
@@ -23,10 +22,10 @@ function App() {
             <Route path="/projects" element={<ProjectPage />} />
             <Route path="/credits" element={<CreditPage />} />
           </Routes>
-          </BrowserRouter>
         </div>
+        <Analytics />
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 

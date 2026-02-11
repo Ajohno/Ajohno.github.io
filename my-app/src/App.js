@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Analytics } from '@vercel/analytics/next';
+import { Analytics } from '@vercel/analytics/react';
 import Sidebar from './components/Sidebar';
 import HomePage from './components/HomePage';
 import AboutPage from './components/AboutPage';

@@ -12,5 +12,9 @@ From the `my-app/` directory:
 
 ## Vercel deployment
 
-This app is configured for Vercel with a SPA rewrite in `vercel.json`.
-When creating the Vercel project, set the root directory to `my-app`.
+- If deploying from repo root, use root `../vercel.json` (it builds this folder and serves `build/`).
+- If Vercel project root is set to `my-app`, this folder's `vercel.json` provides SPA rewrites.
+
+## Analytics
+
+The app uses Vercel Web Analytics via `@vercel/analytics` and renders `<Analytics />` in `src/App.js`.

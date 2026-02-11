@@ -1,26 +1,40 @@
-// src/components/Sidebar.js
 import React from 'react';
-import { Link } from 'react-router-dom';
-import './Sidebar.css'; 
+import { NavLink } from 'react-router-dom';
+import './Sidebar.css';
+
+const links = [
+  { to: '/', label: 'Home', end: true },
+  { to: '/about', label: 'About' },
+  { to: '/experience', label: 'Work Experience' },
+  { to: '/projects', label: 'Projects' }
+];
 
 function Sidebar() {
   return (
-    <div className="sidebar">
-      <h2>My Website</h2>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact</Link>
-          </li>
+    <aside className="sidebar">
+      <div className="sidebar__brand">
+        <h1>Ajohn Portfolio</h1>
+        <p>Software Developer</p>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <ul className="sidebar__nav-list">
+          {links.map((link) => (
+            <li key={link.to}>
+              <NavLink
+                to={link.to}
+                end={link.end}
+                className={({ isActive }) =>
+                  `sidebar__link${isActive ? ' sidebar__link--active' : ''}`
+                }
+              >
+                {link.label}
+              </NavLink>
+            </li>
+          ))}
         </ul>
       </nav>
-    </div>
+    </aside>
   );
 }
 

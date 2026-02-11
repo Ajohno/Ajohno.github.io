@@ -1,16 +1,97 @@
-/* src/App.css */
-.App {
-  display: flex;
+:root {
+  --bg: #0b1020;
+  --panel: #131a2d;
+  --panel-soft: #19223a;
+  --text: #e6ecff;
+  --muted: #9ba9d1;
+  --accent: #6ea8fe;
+  --border: #273252;
 }
 
-.sidebar {
-  width: 200px;
-  background-color: #333;
-  color: white;
-  padding: 20px;
+* {
+  box-sizing: border-box;
 }
 
-.content {
-  flex: 1;
-  padding: 20px;
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #121a33, var(--bg) 48%);
+  color: var(--text);
+}
+
+.app-layout {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+}
+
+.content-area {
+  padding: 2.5rem;
+}
+
+.page-section h2 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+}
+
+.eyebrow {
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.lead {
+  max-width: 70ch;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.info-card,
+.timeline-item {
+  background: linear-gradient(180deg, var(--panel) 0%, var(--panel-soft) 100%);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1rem 1.1rem;
+}
+
+.info-card h3,
+.timeline-item h3 {
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+}
+
+.meta {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.stack-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  line-height: 1.6;
+}
+
+.timeline {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 900px) {
+  .app-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .content-area {
+    padding: 1.25rem;
+  }
 }

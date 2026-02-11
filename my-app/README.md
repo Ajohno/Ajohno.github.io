@@ -18,3 +18,6 @@ From the `my-app/` directory:
 ## Analytics
 
 The app uses Vercel Web Analytics via `@vercel/analytics` and renders `<Analytics />` in `src/App.js`.
+
+
+Note: if you run into npm peer dependency resolution errors locally, install with `npm install --legacy-peer-deps`.

@@ -19,3 +19,6 @@ This repo includes a root `vercel.json` that builds `my-app/` automatically.
 3. Deploy.
 
 If you prefer using Vercel **Root Directory = `my-app`**, that also works because `my-app/vercel.json` includes SPA rewrites.
+
+
+Note: Vercel install uses `--legacy-peer-deps` to avoid npm peer-resolution conflicts between Create React App tooling and transitive optional peers from `@vercel/analytics`.

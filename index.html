@@ -27,8 +27,8 @@
       <section class="hero-section" id="top">
         <div class="hero-copy">
           <h1>
-            Hello, I'm Adrian, a <span>Software Engineer</span><br />
-            building thoughtful digital experiences.
+            Hello, I'm Adrian, a
+            <span class="typewriter-role" aria-live="polite"><span class="typewriter-role-text" id="hero-role">Software Engineer</span></span>
           </h1>
           <p>
             I’m a computer science student and builder focused on creating clean,
@@ -100,5 +100,45 @@
       <section class="content-anchor" id="about"></section>
       <section class="content-anchor" id="contact"></section>
     </main>
+    <script>
+      const roles = ['Software Engineer', 'Game Developer', 'UX Designer'];
+      const roleEl = document.getElementById('hero-role');
+      let roleIndex = 0;
+      let charIndex = roles[0].length;
+      let deleting = true;
+
+      function tick() {
+        const current = roles[roleIndex];
+
+        if (deleting) {
+          charIndex -= 1;
+          roleEl.textContent = current.slice(0, Math.max(charIndex, 0));
+
+          if (charIndex <= 0) {
+            deleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+            setTimeout(tick, 300);
+            return;
+          }
+
+          setTimeout(tick, 55);
+          return;
+        }
+
+        const nextRole = roles[roleIndex];
+        charIndex += 1;
+        roleEl.textContent = nextRole.slice(0, charIndex);
+
+        if (charIndex >= nextRole.length) {
+          deleting = true;
+          setTimeout(tick, 1400);
+          return;
+        }
+
+        setTimeout(tick, 90);
+      }
+
+      setTimeout(tick, 1200);
+    </script>
   </body>
 </html>

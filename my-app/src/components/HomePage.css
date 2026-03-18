@@ -108,6 +108,23 @@
   color: #d1a548;
 }
 
+.typewriter-role {
+  display: inline-flex;
+  min-width: 16ch;
+  margin-left: 0.2em;
+  white-space: nowrap;
+}
+
+.typewriter-role-text::after {
+  content: '';
+  display: inline-block;
+  height: 0.95em;
+  margin-left: 0.12em;
+  border-right: 0.08em solid #d1a548;
+  vertical-align: -0.08em;
+  animation: typewriter-caret 0.9s steps(1) infinite;
+}
+
 .hero-copy p {
   max-width: 52rem;
   margin: 0;
@@ -159,6 +176,17 @@
   justify-content: center;
 }
 
+
+@keyframes typewriter-caret {
+  0%,
+  49% {
+    border-color: #d1a548;
+  }
+  50%,
+  100% {
+    border-color: transparent;
+  }
+}
 
 @media (max-width: 1080px) {
   .hero-header,

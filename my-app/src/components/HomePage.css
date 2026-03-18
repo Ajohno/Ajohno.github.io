@@ -1,0 +1,230 @@
+.home-page {
+  min-height: 100vh;
+  color: #f6f3ee;
+  background:
+    radial-gradient(circle at 75% 30%, rgba(198, 154, 63, 0.16), transparent 28%),
+    radial-gradient(circle at 65% 65%, rgba(198, 154, 63, 0.08), transparent 25%),
+    linear-gradient(180deg, #0d0d0d 0%, #090909 100%);
+}
+
+.hero-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid rgba(198, 154, 63, 0.15);
+}
+
+.brand-mark {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-width: 240px;
+}
+
+.brand-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 0.9rem;
+  font-weight: 700;
+  font-size: 1.75rem;
+  color: #171717;
+  background: linear-gradient(135deg, #f3d86a, #be8d30);
+  box-shadow: 0 0 24px rgba(211, 163, 59, 0.2);
+}
+
+.brand-text {
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.brand-text em {
+  font-style: normal;
+  color: #d1a548;
+}
+
+.hero-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  flex: 1;
+}
+
+.hero-nav a,
+.secondary-action {
+  color: #c9ccd5;
+  text-decoration: none;
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.hero-nav a:hover,
+.hero-nav a:focus-visible,
+.secondary-action:hover,
+.secondary-action:focus-visible {
+  color: #f6f3ee;
+}
+
+.hire-button,
+.primary-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.8rem;
+  border-radius: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: #181512;
+  background: linear-gradient(135deg, #f0d25d, #bc8830);
+  box-shadow: 0 12px 30px rgba(201, 152, 54, 0.22);
+}
+
+.hero-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+  align-items: center;
+  gap: 3rem;
+  padding: 5rem 2rem 3rem;
+}
+
+.hero-copy {
+  max-width: 760px;
+}
+
+.hero-copy h1 {
+  margin: 2rem 0 1.5rem;
+  font-size: clamp(3.5rem, 8vw, 6.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+
+.hero-copy h1 span {
+  color: #d1a548;
+}
+
+.typewriter-role {
+  display: inline-block;
+  min-width: 16ch;
+  margin-left: 0.2em;
+  white-space: nowrap;
+  border-right: 0.08em solid #d1a548;
+  padding-right: 0.12em;
+  animation: typewriter-caret 0.9s steps(1) infinite;
+}
+
+.hero-copy p {
+  max-width: 52rem;
+  margin: 0;
+  color: #a2a7b5;
+  font-size: clamp(1.05rem, 2.2vw, 1.55rem);
+  line-height: 1.5;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.secondary-action {
+  padding: 0.95rem 1.8rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(198, 154, 63, 0.35);
+  color: #d5b15a;
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 4rem;
+}
+
+.stat-card {
+  padding-left: 1.4rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.stat-card strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  color: #ffffff;
+}
+
+.stat-card span {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #b99745;
+}
+
+.hero-visual {
+  display: flex;
+  justify-content: center;
+}
+
+
+@keyframes typewriter-caret {
+  0%,
+  49% {
+    border-color: #d1a548;
+  }
+  50%,
+  100% {
+    border-color: transparent;
+  }
+}
+
+@media (max-width: 1080px) {
+  .hero-header,
+  .hero-section {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .hero-section {
+    grid-template-columns: 1fr;
+    padding-top: 3rem;
+  }
+
+  .hero-copy {
+    max-width: 100%;
+  }
+
+}
+
+@media (max-width: 760px) {
+  .hero-header {
+    flex-wrap: wrap;
+  }
+
+  .brand-mark,
+  .hire-button {
+    min-width: auto;
+  }
+
+  .hero-nav {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-actions,
+  .hero-stats {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+  }
+
+  .hero-stats {
+    display: grid;
+  }
+
+}

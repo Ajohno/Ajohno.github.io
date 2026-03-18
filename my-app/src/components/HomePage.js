@@ -10,6 +10,26 @@ const stats = [
 
 const navItems = ['Work', 'Experience', 'About', 'Contact'];
 const roles = ['Software Engineer', 'Game Developer', 'UX Designer'];
+const projects = [
+  {
+    title: 'Nexus Wallet',
+    description: 'A streamlined fintech experience focused on making portfolio management, payments, and wallet insights easier to understand.',
+    tags: ['Product', 'Fintech'],
+    mediaClass: 'project-card-media--analytics',
+  },
+  {
+    title: 'Velvet Luxe',
+    description: 'A polished commerce concept for premium retail experiences with a strong focus on conversion, clarity, and visual storytelling.',
+    tags: ['E-Commerce', 'Mobile'],
+    mediaClass: 'project-card-media--frame',
+  },
+  {
+    title: 'DataFlow AI',
+    description: 'A dashboard concept that turns dense operational data into useful, readable workflows for product and business teams.',
+    tags: ['SaaS', 'B2B'],
+    mediaClass: 'project-card-media--platform',
+  },
+];
 
 function HomePage() {
   const [roleText, setRoleText] = useState(roles[0]);
@@ -116,6 +136,36 @@ function HomePage() {
           <LanyardCard />
         </div>
       </section>
+
+      <section className="featured-projects" id="work" aria-labelledby="featured-projects-heading">
+        <div className="section-heading-row">
+          <h2 id="featured-projects-heading">
+            Featured <span>Projects</span>
+          </h2>
+          <a className="section-link" href="#contact">
+            Explore all case studies
+          </a>
+        </div>
+
+        <div className="project-grid">
+          {projects.map((project) => (
+            <article key={project.title} className="project-card">
+              <div className={`project-card-media ${project.mediaClass}`}></div>
+              <div className="project-card-content">
+                <div className="project-tags">
+                  {project.tags.map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
+                </div>
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+                <a href="#contact">Case Study</a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
     </main>
   );
 }

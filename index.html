@@ -3,128 +3,142 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home Page with Sidebar</title>
+    <title>Adrian Johnson | Portfolio</title>
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <!-- Sidebar placeholder -->
-    <div id="sidebar-container"></div>
+    <main class="home-page">
+      <header class="hero-header">
+        <a class="brand-mark" href="#top" aria-label="Adrian Johnson home">
+          <span class="brand-icon">AJ</span>
+          <span class="brand-text">Adrian <em>Johnson.</em></span>
+        </a>
 
-    <!-- Main Content -->
-    <div class="main-content">
-      <!-- Transparent Box -->
-      <div class="infobox">
-        <!-- Divider Line -->
-        <hr />
-        <!-- Grid Box Layout -->
-        <div class="grid-container">
-          <!-- Greetings Box -->
-          <div class="grid-item">
-            <h1
-              style="
-                color: #000000;
-                font-weight: bold;
-                font-size: 96px;
-                font-family: system-ui, -apple-system, BlinkMacSystemFont,
-                  'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
-                  'Helvetica Neue', sans-serif;
-              "
-            >
-              Hello, I'm Adrian
-            </h1>
+        <nav class="hero-nav" aria-label="Primary navigation">
+          <a href="#work">Work</a>
+          <a href="#experience">Experience</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <a class="hire-button" href="mailto:acbjohnson2002@gmail.com">Hire Me</a>
+      </header>
+
+      <section class="hero-section" id="top">
+        <div class="hero-copy">
+          <h1>
+            Hello, I'm Adrian, a
+            <span class="typewriter-role" aria-live="polite"><span class="typewriter-role-text" id="hero-role">Software Engineer</span></span>
+          </h1>
+          <p>
+            I’m a computer science student and builder focused on creating clean,
+            usable products that connect strong engineering with intuitive user
+            experience.
+          </p>
+
+          <div class="hero-actions">
+            <a class="primary-action" href="#work">View My Work</a>
+            <a class="secondary-action" href="mailto:acbjohnson2002@gmail.com">Contact Me</a>
           </div>
-          <div class="grid-item">
-            <!-- Headshot Image -->
-            <img
-              src="/Images/Headshot.png"
-              alt="Adrian Johnson Headshot"
-              width="60%"
-              height="90%"
-            />
-          </div>
-          <!-- Information Box -->
-          <div
-            margin-left:
-            5%;
-            margin-left:
-            5%;
-            style="
-              text-align: start;
-              background-color: #000000;
-              width: 80%;
-              margin-left: 10%;
-            "
-            class="grid-item"
-          >
-            <p>Name: Adrian Johnson</p>
-            <p>College: Worcester Polytechnic Institute</p>
-            <p>Major: Computer Science</p>
-            <p>Minor: Interactive Media & Game Development</p>
-          </div>
-          <!-- Carousel Menu -->
-          <!-- <div
-            style="background-color: #000000; width: 80%; margin-left: 10%"
-            class="grid-item"
-          >
-            Carousel Menu
-          </div> -->
-        </div>
-        <!-- Divider Line -->
-        <hr />
-        <!-- Social Link Buttons -->
-        <div class="social-links-buttons">
-          <div class="grid-item">
-            <!-- LinkedIn Button -->
-            <div class="zoom-transition-button">
-              <button
-                onclick="window.open('https://www.linkedin.com/in/ajohnojohnson/', '_blank');"
-                type="button"
-              >
-                <!-- LinkedIn Logo -->
-                <img src="/Images/linkedin.png" alt="LinkedIn Button" />
-              </button>
+
+          <div class="hero-stats" aria-label="Career highlights">
+            <div class="stat-card">
+              <strong>5+</strong>
+              <span>Years Coding</span>
             </div>
-          </div>
-          <!-- Github Button -->
-          <div class="grid-item">
-            <div class="zoom-transition-button">
-              <button
-                onclick="window.open('https://github.com/Ajohno', '_blank');"
-                type="button"
-              >
-                <img src="/Images/github.png" alt="LinkedIn Button" />
-              </button>
+            <div class="stat-card">
+              <strong>40+</strong>
+              <span>Projects Built</span>
             </div>
-          </div>
-          <!-- Gmail Button -->
-          <div class="grid-item">
-            <div class="zoom-transition-button">
-              <button onclick="sendEmail()" type="button">
-                <img src="/Images/gmail.png" alt="LinkedIn Button" />
-              </button>
+            <div class="stat-card">
+              <strong>WPI</strong>
+              <span>Computer Science</span>
             </div>
           </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Scripts -->
+        <div class="hero-visual" aria-label="Adrian Johnson lanyard badge">
+          <div class="lanyard-scene">
+            <div class="lanyard-orbit"></div>
+            <div class="lanyard-neck"></div>
+            <div class="lanyard-strap lanyard-strap-left"></div>
+            <div class="lanyard-strap lanyard-strap-right"></div>
+            <div class="lanyard-ring"><span class="lanyard-clip"></span></div>
 
-    <!-- Script to load the sidebar -->
-    <script src="/JavaScript/loadSidebar.js"></script>
+            <div class="lanyard-swing">
+              <article class="lanyard-card">
+                <div class="lanyard-card-glow"></div>
+                <div class="lanyard-card-top">
+                  <div class="lanyard-card-hole"></div>
+                </div>
+                <div class="lanyard-portrait-frame">
+                  <img class="lanyard-portrait-image" src="/Images/Headshot.png" alt="Adrian Johnson portrait" />
+                </div>
+                <div class="lanyard-card-copy">
+                  <h2>Adrian Johnson</h2>
+                  <p>Software Engineer</p>
+                </div>
+                <div class="lanyard-card-meta">
+                  <span>ID: AJ-2026-104</span>
+                  <span>Verified Access</span>
+                </div>
+                <div class="lanyard-barcode-row">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </article>
+            </div>
 
-    <!-- sendEmail function -->
+          </div>
+        </div>
+      </section>
+
+      <section class="content-anchor" id="work"></section>
+      <section class="content-anchor" id="experience"></section>
+      <section class="content-anchor" id="about"></section>
+      <section class="content-anchor" id="contact"></section>
+    </main>
     <script>
-      function sendEmail() {
-        const email = "acbjohnson2002@gmail.com";
-        const subject = "";
-        const body = "Write your message here!";
-        const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(
-          subject
-        )}&body=${encodeURIComponent(body)}`;
+      const roles = ['Software Engineer', 'Game Developer', 'UX Designer'];
+      const roleEl = document.getElementById('hero-role');
+      let roleIndex = 0;
+      let charIndex = roles[0].length;
+      let deleting = true;
 
-        window.open(mailtoLink, "_blank"); // Opens the mailto link in a new tab
+      function tick() {
+        const current = roles[roleIndex];
+
+        if (deleting) {
+          charIndex -= 1;
+          roleEl.textContent = current.slice(0, Math.max(charIndex, 0));
+
+          if (charIndex <= 0) {
+            deleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+            setTimeout(tick, 300);
+            return;
+          }
+
+          setTimeout(tick, 55);
+          return;
+        }
+
+        const nextRole = roles[roleIndex];
+        charIndex += 1;
+        roleEl.textContent = nextRole.slice(0, charIndex);
+
+        if (charIndex >= nextRole.length) {
+          deleting = true;
+          setTimeout(tick, 1400);
+          return;
+        }
+
+        setTimeout(tick, 90);
       }
+
+      setTimeout(tick, 1200);
     </script>
   </body>
 </html>

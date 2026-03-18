@@ -82,7 +82,8 @@ function HomePage() {
       <section className="hero-section">
         <div className="hero-copy">
           <h1>
-            Hello, I’m Adrian, a
+            Hi, I’m Adrian
+            <br />
             <span className="typewriter-role" aria-live="polite">
               {roleText}
             </span>

@@ -67,20 +67,20 @@ function LanyardCard() {
           </div>
 
           <div className="lanyard-portrait-frame">
-            <div className="lanyard-portrait-bg"></div>
-            <div className="lanyard-portrait-head"></div>
-            <div className="lanyard-portrait-face"></div>
-            <div className="lanyard-portrait-neck"></div>
-            <div className="lanyard-portrait-shirt"></div>
+            <img
+              className="lanyard-portrait-image"
+              src="/Images/Headshot.png"
+              alt="Adrian Johnson portrait"
+            />
           </div>
 
           <div className="lanyard-card-copy">
-            <h2>Jordan Doe</h2>
-            <p>Lead UX Designer</p>
+            <h2>Adrian Johnson</h2>
+            <p>Software Engineer</p>
           </div>
 
           <div className="lanyard-card-meta">
-            <span>ID: FL-2026-104</span>
+            <span>ID: AJ-2026-104</span>
             <span>Verified Access</span>
           </div>
 

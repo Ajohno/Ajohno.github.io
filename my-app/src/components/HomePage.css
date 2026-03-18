@@ -176,6 +176,11 @@
   justify-content: center;
 }
 
+.hero-visual--lanyard {
+  min-height: 44rem;
+  align-items: center;
+}
+
 
 
 .featured-projects {

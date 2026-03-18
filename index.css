@@ -105,7 +105,7 @@ a {
   grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
   align-items: center;
   gap: 3rem;
-  padding: 0rem 2rem 3rem;
+  padding: 5rem 2rem 3rem;
 }
 
 .hero-copy {
@@ -189,6 +189,11 @@ a {
 .hero-visual {
   display: flex;
   justify-content: center;
+}
+
+.hero-visual--lanyard {
+  min-height: 44rem;
+  align-items: center;
 }
 
 .lanyard-scene {

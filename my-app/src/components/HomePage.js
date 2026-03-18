@@ -132,7 +132,7 @@ function HomePage() {
           </div>
         </div>
 
-        <div className="hero-visual" aria-label="Adrian Johnson lanyard badge">
+        <div className="hero-visual hero-visual--lanyard" aria-label="Adrian Johnson lanyard badge">
           <LanyardCard />
         </div>
       </section>

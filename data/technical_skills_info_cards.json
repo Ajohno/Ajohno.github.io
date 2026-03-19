@@ -16,6 +16,36 @@
     "description": "NoSQL database for storing data in JSON-like format.",
     "image": "/Images/prep_school.png",
     "alt-text": "MongoDB Logo"
+  },
+    {
+    "heading": "GitHub",
+    "description": "Platform for version control and collaboration using Git.",
+    "image": "",
+    "alt-text": ""
+  },
+  {
+    "heading": "WordPress",
+    "description": "Content management system for building websites and blogs.",
+    "image": "",
+    "alt-text": ""
+  },
+  {
+    "heading": "Codex",
+    "description": "AI system by OpenAI that translates natural language into code.",
+    "image": "",
+    "alt-text": ""
+  },
+  {
+    "heading": "ChatGPT",
+    "description": "AI chatbot by OpenAI for conversation, coding, and problem-solving.",
+    "image": "",
+    "alt-text": ""
+  },
+  {
+    "heading": "Vercel",
+    "description": "Cloud platform for deploying and hosting frontend applications.",
+    "image": "",
+    "alt-text": ""
   }
   ]
   

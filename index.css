@@ -666,7 +666,9 @@ a {
 
 @media (max-width: 760px) {
   .hero-header {
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
     gap: 1.25rem;
   }
 
@@ -675,10 +677,19 @@ a {
     min-width: auto;
   }
 
+  .brand-mark {
+    min-width: 0;
+  }
+
+  .brand-text {
+    font-size: 1rem;
+  }
+
   .hero-nav {
-    order: 3;
+    grid-column: 1 / -1;
+    order: initial;
     width: 100%;
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: 1rem;
     flex-wrap: wrap;
   }
@@ -699,9 +710,15 @@ a {
     flex-direction: column;
   }
 
-  .hero-actions a,
-  .hire-button {
+  .hero-actions a {
     width: 100%;
+  }
+
+  .hire-button {
+    width: auto;
+    justify-self: end;
+    padding: 0.95rem 1.35rem;
+    white-space: nowrap;
   }
 
   .hero-stats,
@@ -802,6 +819,11 @@ a {
   .experience-section {
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+
+  .hero-header {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1rem;
   }
 
   .brand-mark {

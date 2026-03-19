@@ -18,6 +18,7 @@
           <a href="#about">About</a>
           <a href="#projects">Projects</a>
           <a href="#experience">Experience</a>
+          <a href="#tools">Tools</a>
           <a href="#contact">Contact</a>
         </nav>
 
@@ -138,12 +139,29 @@
           <div class="timeline-line"></div>
         </div>
       </section>
+
+      <section class="tools-section" id="tools" aria-labelledby="tools-heading">
+        <div class="tools-section-header">
+          <div>
+            <h2 id="tools-heading">Mastered <span>Tools</span></h2>
+            <p>
+              The sophisticated arsenal I employ to transform visionary concepts
+              into digital realities.
+            </p>
+          </div>
+          <span class="tools-section-meta" id="tools-section-meta">Curation 01 — 00</span>
+        </div>
+
+        <div class="tools-grid" id="tools-grid"></div>
+      </section>
     </main>
     <script>
       const roles = ["Software Engineer", "Game Developer", "UX Designer"];
       const roleEl = document.getElementById("hero-role");
       const projectGridEl = document.getElementById("project-grid");
       const experienceTimelineEl = document.getElementById("experience-timeline");
+      const toolsGridEl = document.getElementById("tools-grid");
+      const toolsSectionMetaEl = document.getElementById("tools-section-meta");
       const mobileProjectsQuery = window.matchMedia("(max-width: 760px)");
       let projectCardObserver;
       let roleIndex = 0;
@@ -260,6 +278,39 @@
         }
       }
 
+      async function loadTools() {
+        try {
+          const response = await fetch("./data/technical_skills_info_cards.json");
+          if (!response.ok) {
+            throw new Error(`Failed to load tools data: ${response.status}`);
+          }
+
+          const tools = await response.json();
+
+          toolsSectionMetaEl.textContent = `Curation 01 — ${String(tools.length).padStart(2, "0")}`;
+
+          toolsGridEl.innerHTML = tools
+            .map((tool) => {
+              const monogram = tool.heading
+                .split(/\s+/)
+                .slice(0, 2)
+                .map((part) => part[0]?.toUpperCase() ?? "")
+                .join("");
+
+              return `
+                <article class="tool-card">
+                  <div class="tool-card-icon" aria-hidden="true">${monogram}</div>
+                  <h3>${tool.heading}</h3>
+                  <p>${tool.description}</p>
+                </article>
+              `;
+            })
+            .join("");
+        } catch (error) {
+          console.error(error);
+        }
+      }
+
       async function loadProjects() {
         try {
           const response = await fetch("./data/projects_info_cards.json");
@@ -305,6 +356,7 @@
       setTimeout(tick, 1200);
       loadProjects();
       loadExperience();
+      loadTools();
     </script>
   </body>
 </html>

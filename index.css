@@ -466,7 +466,7 @@ a {
   z-index: 2;
   padding: 1.8rem;
   background: linear-gradient(0deg, rgba(11, 13, 17, 0.96), rgba(11, 13, 17, 0.72) 55%, rgba(11, 13, 17, 0.1));
-  transform: translateY(calc(100% - 5.9rem));
+  transform: translateY(100%);
   transition: transform 0.35s ease;
 }
 

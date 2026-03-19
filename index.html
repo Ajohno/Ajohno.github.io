@@ -149,24 +149,36 @@
               into digital realities.
             </p>
           </div>
-          <span class="tools-section-meta" id="tools-section-meta">Curation 01 — 00</span>
         </div>
 
         <div class="tools-grid" id="tools-grid"></div>
       </section>
     </main>
+
+    <button class="scroll-top-button" id="scroll-top-button" type="button" aria-label="Scroll to top">↑</button>
+
     <script>
       const roles = ["Software Engineer", "Game Developer", "UX Designer"];
       const roleEl = document.getElementById("hero-role");
       const projectGridEl = document.getElementById("project-grid");
       const experienceTimelineEl = document.getElementById("experience-timeline");
       const toolsGridEl = document.getElementById("tools-grid");
-      const toolsSectionMetaEl = document.getElementById("tools-section-meta");
-      const mobileProjectsQuery = window.matchMedia("(max-width: 760px)");
-      let projectCardObserver;
+      const scrollTopButtonEl = document.getElementById("scroll-top-button");
+      const mobileCardQuery = window.matchMedia("(max-width: 760px)");
+      let mobileCardEffectsBound = false;
+      let mobileCardEffectsTicking = false;
       let roleIndex = 0;
       let charIndex = roles[0].length;
       let deleting = true;
+
+      function updateScrollTopButton() {
+        const shouldShow = window.scrollY > 320;
+        scrollTopButtonEl.classList.toggle("is-visible", shouldShow);
+      }
+
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
 
       function tick() {
         const current = roles[roleIndex];
@@ -199,42 +211,72 @@
         setTimeout(tick, 90);
       }
 
-      function updateCenteredProjectCards() {
-        const projectCards = Array.from(document.querySelectorAll(".project-card"));
+      function setCenteredActiveCard(selector) {
+        const cards = Array.from(document.querySelectorAll(selector));
+        let closestCard = null;
+        let closestDistance = Number.POSITIVE_INFINITY;
+        const viewportCenter = window.innerHeight / 2;
 
-        if (projectCardObserver) {
-          projectCardObserver.disconnect();
-          projectCardObserver = null;
+        cards.forEach((card) => {
+          card.classList.remove("is-active");
+
+          const rect = card.getBoundingClientRect();
+          const isVisible = rect.bottom > 0 && rect.top < window.innerHeight;
+          if (!isVisible) {
+            return;
+          }
+
+          const cardCenter = rect.top + rect.height / 2;
+          const distance = Math.abs(cardCenter - viewportCenter);
+
+          if (distance < closestDistance) {
+            closestDistance = distance;
+            closestCard = card;
+          }
+        });
+
+        if (closestCard) {
+          closestCard.classList.add("is-active");
         }
+      }
 
-        if (!mobileProjectsQuery.matches) {
-          projectCards.forEach((card) => card.classList.remove("is-active"));
+      function applyMobileCardEffects() {
+        mobileCardEffectsTicking = false;
+
+        if (!mobileCardQuery.matches) {
+          document
+            .querySelectorAll(".project-card, .timeline-card")
+            .forEach((card) => card.classList.remove("is-active"));
           return;
         }
 
-        projectCardObserver = new IntersectionObserver(
-          (entries) => {
-            let mostVisibleEntry = null;
+        setCenteredActiveCard(".project-card");
+        setCenteredActiveCard(".timeline-card");
+      }
 
-            entries.forEach((entry) => {
-              if (!mostVisibleEntry || entry.intersectionRatio > mostVisibleEntry.intersectionRatio) {
-                mostVisibleEntry = entry;
-              }
-            });
+      function scheduleMobileCardEffects() {
+        if (mobileCardEffectsTicking) {
+          return;
+        }
 
-            projectCards.forEach((card) => card.classList.remove("is-active"));
+        mobileCardEffectsTicking = true;
+        window.requestAnimationFrame(applyMobileCardEffects);
+      }
 
-            if (mostVisibleEntry && mostVisibleEntry.isIntersecting) {
-              mostVisibleEntry.target.classList.add("is-active");
-            }
-          },
-          {
-            threshold: [0.35, 0.5, 0.65, 0.8],
-            rootMargin: "-20% 0px -20% 0px",
-          },
-        );
+      function syncMobileCardEffects() {
+        if (mobileCardQuery.matches && !mobileCardEffectsBound) {
+          window.addEventListener("scroll", scheduleMobileCardEffects, { passive: true });
+          window.addEventListener("resize", scheduleMobileCardEffects);
+          mobileCardEffectsBound = true;
+        }
 
-        projectCards.forEach((card) => projectCardObserver.observe(card));
+        if (!mobileCardQuery.matches && mobileCardEffectsBound) {
+          window.removeEventListener("scroll", scheduleMobileCardEffects);
+          window.removeEventListener("resize", scheduleMobileCardEffects);
+          mobileCardEffectsBound = false;
+        }
+
+        applyMobileCardEffects();
       }
 
       async function loadExperience() {
@@ -273,6 +315,8 @@
 
             experienceTimelineEl.appendChild(item);
           });
+
+          syncMobileCardEffects();
         } catch (error) {
           console.error(error);
         }
@@ -286,8 +330,6 @@
           }
 
           const tools = await response.json();
-
-          toolsSectionMetaEl.textContent = `Curation 01 — ${String(tools.length).padStart(2, "0")}`;
 
           toolsGridEl.innerHTML = tools
             .map((tool) => {
@@ -345,18 +387,22 @@
             )
             .join("");
 
-          updateCenteredProjectCards();
+          syncMobileCardEffects();
         } catch (error) {
           console.error(error);
         }
       }
 
-      mobileProjectsQuery.addEventListener("change", updateCenteredProjectCards);
+      mobileCardQuery.addEventListener("change", syncMobileCardEffects);
+      window.addEventListener("scroll", updateScrollTopButton, { passive: true });
+      scrollTopButtonEl.addEventListener("click", scrollToTop);
 
       setTimeout(tick, 1200);
       loadProjects();
       loadExperience();
       loadTools();
+      syncMobileCardEffects();
+      updateScrollTopButton();
     </script>
   </body>
 </html>

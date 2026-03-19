@@ -1,130 +1,408 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home Page with Sidebar</title>
+    <title>Adrian Johnson | Portfolio</title>
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <!-- Sidebar placeholder -->
-    <div id="sidebar-container"></div>
+    <main class="home-page">
+      <header class="hero-header">
+        <a class="brand-mark" href="#top" aria-label="Adrian Johnson home">
+          <span class="brand-icon">AJ</span>
+          <span class="brand-text">Adrian <em>Johnson</em></span>
+        </a>
 
-    <!-- Main Content -->
-    <div class="main-content">
-      <!-- Transparent Box -->
-      <div class="infobox">
-        <!-- Divider Line -->
-        <hr />
-        <!-- Grid Box Layout -->
-        <div class="grid-container">
-          <!-- Greetings Box -->
-          <div class="grid-item">
-            <h1
-              style="
-                color: #000000;
-                font-weight: bold;
-                font-size: 96px;
-                font-family: system-ui, -apple-system, BlinkMacSystemFont,
-                  'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
-                  'Helvetica Neue', sans-serif;
-              "
+        <nav class="hero-nav" aria-label="Primary navigation">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#tools">Tools</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <a class="hire-button" href="mailto:acbjohnson2002@gmail.com"
+          >Hire Me</a
+        >
+      </header>
+
+      <section class="hero-section" id="about">
+        <div class="hero-copy">
+          <h1>
+            Hello, I'm Adrian,
+            <span class="typewriter-role" aria-live="polite"
+              ><span class="typewriter-role-text" id="hero-role"
+                >Software Engineer</span
+              ></span
             >
-              Hello, I'm Adrian
-            </h1>
+          </h1>
+          <p>
+            I’m a software developer passionate about building interactive and
+            meaningful digital experiences. Whether it’s developing Android
+            apps, designing game mechanics in Unreal Engine, or tackling
+            security challenges, I enjoy turning ideas into real, working
+            systems and continuously pushing my technical skills forward.
+          </p>
+
+          <div class="hero-actions">
+            <a class="primary-action" href="#work">View My Work</a>
+            <a class="secondary-action" href="mailto:acbjohnson2002@gmail.com"
+              >Contact Me</a
+            >
           </div>
-          <div class="grid-item">
-            <!-- Headshot Image -->
-            <img
-              src="/Images/Headshot.png"
-              alt="Adrian Johnson Headshot"
-              width="60%"
-              height="90%"
-            />
-          </div>
-          <!-- Information Box -->
-          <div
-            margin-left:
-            5%;
-            margin-left:
-            5%;
-            style="
-              text-align: start;
-              background-color: #000000;
-              width: 80%;
-              margin-left: 10%;
-            "
-            class="grid-item"
-          >
-            <p>Name: Adrian Johnson</p>
-            <p>College: Worcester Polytechnic Institute</p>
-            <p>Major: Computer Science</p>
-            <p>Minor: Interactive Media & Game Development</p>
-          </div>
-          <!-- Carousel Menu -->
-          <!-- <div
-            style="background-color: #000000; width: 80%; margin-left: 10%"
-            class="grid-item"
-          >
-            Carousel Menu
-          </div> -->
-        </div>
-        <!-- Divider Line -->
-        <hr />
-        <!-- Social Link Buttons -->
-        <div class="social-links-buttons">
-          <div class="grid-item">
-            <!-- LinkedIn Button -->
-            <div class="zoom-transition-button">
-              <button
-                onclick="window.open('https://www.linkedin.com/in/ajohnojohnson/', '_blank');"
-                type="button"
-              >
-                <!-- LinkedIn Logo -->
-                <img src="/Images/linkedin.png" alt="LinkedIn Button" />
-              </button>
+
+          <div class="hero-stats" aria-label="Career highlights">
+            <div class="stat-card">
+              <strong>4+</strong>
+              <span>Years Coding</span>
             </div>
-          </div>
-          <!-- Github Button -->
-          <div class="grid-item">
-            <div class="zoom-transition-button">
-              <button
-                onclick="window.open('https://github.com/Ajohno', '_blank');"
-                type="button"
-              >
-                <img src="/Images/github.png" alt="LinkedIn Button" />
-              </button>
+            <div class="stat-card">
+              <strong>15+</strong>
+              <span>Projects Built</span>
             </div>
-          </div>
-          <!-- Gmail Button -->
-          <div class="grid-item">
-            <div class="zoom-transition-button">
-              <button onclick="sendEmail()" type="button">
-                <img src="/Images/gmail.png" alt="LinkedIn Button" />
-              </button>
+            <div class="stat-card">
+              <strong>WPI</strong>
+              <span>CS Major | Game Dev Minor</span>
             </div>
           </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Scripts -->
+        <div
+          class="hero-visual hero-visual--lanyard"
+          aria-label="Adrian Johnson lanyard badge"
+        >
+          <div class="lanyard-scene">
+            <div class="lanyard-orbit"></div>
+            <div class="lanyard-neck"></div>
+            <div class="lanyard-strap lanyard-strap-left"></div>
+            <div class="lanyard-strap lanyard-strap-right"></div>
+            <div class="lanyard-ring"><span class="lanyard-clip"></span></div>
 
-    <!-- Script to load the sidebar -->
-    <script src="/JavaScript/loadSidebar.js"></script>
+            <div class="lanyard-swing">
+              <article class="lanyard-card">
+                <div class="lanyard-card-glow"></div>
+                <div class="lanyard-card-top">
+                  <div class="lanyard-card-hole"></div>
+                </div>
+                <div class="lanyard-portrait-frame">
+                  <img
+                    class="lanyard-portrait-image"
+                    src="/Images/Headshot.png"
+                    alt="Adrian Johnson portrait"
+                  />
+                </div>
+                <div class="lanyard-card-copy">
+                  <h2>Adrian Johnson</h2>
+                  <p>Software Engineer</p>
+                </div>
+                <div class="lanyard-card-meta">
+                  <span>ID: AJ-2026-104</span>
+                  <span>Verified Access</span>
+                </div>
+                <div class="lanyard-barcode-row">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <!-- sendEmail function -->
+      <section
+        class="featured-projects"
+        id="projects"
+        aria-labelledby="featured-projects-heading"
+      >
+        <div class="section-heading-row">
+          <h2 id="featured-projects-heading">Featured <span>Projects</span></h2>
+          <a class="section-link" href="#projects">Explore all projects</a>
+        </div>
+
+        <div class="project-grid" id="project-grid"></div>
+      </section>
+
+      <section
+        class="experience-section"
+        id="experience"
+        aria-labelledby="experience-heading"
+      >
+        <div class="section-heading-row">
+          <h2 id="experience-heading">Professional <span>Timeline</span></h2>
+          <a class="section-link" href="#contact">View full resume</a>
+        </div>
+
+        <div class="timeline" id="experience-timeline">
+          <div class="timeline-line"></div>
+        </div>
+      </section>
+
+      <section class="tools-section" id="tools" aria-labelledby="tools-heading">
+        <div class="tools-section-header">
+          <div>
+            <h2 id="tools-heading">Mastered <span>Tools</span></h2>
+            <p>
+              The sophisticated arsenal I employ to transform visionary concepts
+              into digital realities.
+            </p>
+          </div>
+        </div>
+
+        <div class="tools-grid" id="tools-grid"></div>
+      </section>
+    </main>
+
+    <button class="scroll-top-button" id="scroll-top-button" type="button" aria-label="Scroll to top">↑</button>
+
     <script>
-      function sendEmail() {
-        const email = "acbjohnson2002@gmail.com";
-        const subject = "";
-        const body = "Write your message here!";
-        const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(
-          subject
-        )}&body=${encodeURIComponent(body)}`;
+      const roles = ["Software Engineer", "Game Developer", "UX Designer"];
+      const roleEl = document.getElementById("hero-role");
+      const projectGridEl = document.getElementById("project-grid");
+      const experienceTimelineEl = document.getElementById("experience-timeline");
+      const toolsGridEl = document.getElementById("tools-grid");
+      const scrollTopButtonEl = document.getElementById("scroll-top-button");
+      const mobileCardQuery = window.matchMedia("(max-width: 760px)");
+      let mobileCardEffectsBound = false;
+      let mobileCardEffectsTicking = false;
+      let roleIndex = 0;
+      let charIndex = roles[0].length;
+      let deleting = true;
 
-        window.open(mailtoLink, "_blank"); // Opens the mailto link in a new tab
+      function updateScrollTopButton() {
+        const shouldShow = window.scrollY > 320;
+        scrollTopButtonEl.classList.toggle("is-visible", shouldShow);
       }
+
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function tick() {
+        const current = roles[roleIndex];
+
+        if (deleting) {
+          charIndex -= 1;
+          roleEl.textContent = current.slice(0, Math.max(charIndex, 0));
+
+          if (charIndex <= 0) {
+            deleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+            setTimeout(tick, 300);
+            return;
+          }
+
+          setTimeout(tick, 55);
+          return;
+        }
+
+        const nextRole = roles[roleIndex];
+        charIndex += 1;
+        roleEl.textContent = nextRole.slice(0, charIndex);
+
+        if (charIndex >= nextRole.length) {
+          deleting = true;
+          setTimeout(tick, 1400);
+          return;
+        }
+
+        setTimeout(tick, 90);
+      }
+
+      function setCenteredActiveCard(selector) {
+        const cards = Array.from(document.querySelectorAll(selector));
+        let closestCard = null;
+        let closestDistance = Number.POSITIVE_INFINITY;
+        const viewportCenter = window.innerHeight / 2;
+
+        cards.forEach((card) => {
+          card.classList.remove("is-active");
+
+          const rect = card.getBoundingClientRect();
+          const isVisible = rect.bottom > 0 && rect.top < window.innerHeight;
+          if (!isVisible) {
+            return;
+          }
+
+          const cardCenter = rect.top + rect.height / 2;
+          const distance = Math.abs(cardCenter - viewportCenter);
+
+          if (distance < closestDistance) {
+            closestDistance = distance;
+            closestCard = card;
+          }
+        });
+
+        if (closestCard) {
+          closestCard.classList.add("is-active");
+        }
+      }
+
+      function applyMobileCardEffects() {
+        mobileCardEffectsTicking = false;
+
+        if (!mobileCardQuery.matches) {
+          document
+            .querySelectorAll(".project-card, .timeline-card")
+            .forEach((card) => card.classList.remove("is-active"));
+          return;
+        }
+
+        setCenteredActiveCard(".project-card");
+        setCenteredActiveCard(".timeline-card");
+      }
+
+      function scheduleMobileCardEffects() {
+        if (mobileCardEffectsTicking) {
+          return;
+        }
+
+        mobileCardEffectsTicking = true;
+        window.requestAnimationFrame(applyMobileCardEffects);
+      }
+
+      function syncMobileCardEffects() {
+        if (mobileCardQuery.matches && !mobileCardEffectsBound) {
+          window.addEventListener("scroll", scheduleMobileCardEffects, { passive: true });
+          window.addEventListener("resize", scheduleMobileCardEffects);
+          mobileCardEffectsBound = true;
+        }
+
+        if (!mobileCardQuery.matches && mobileCardEffectsBound) {
+          window.removeEventListener("scroll", scheduleMobileCardEffects);
+          window.removeEventListener("resize", scheduleMobileCardEffects);
+          mobileCardEffectsBound = false;
+        }
+
+        applyMobileCardEffects();
+      }
+
+      async function loadExperience() {
+        try {
+          const response = await fetch("./data/experience_info_cards.json");
+          if (!response.ok) {
+            throw new Error(`Failed to load experience data: ${response.status}`);
+          }
+
+          const experiences = await response.json();
+          const timelineLine = experienceTimelineEl.querySelector(".timeline-line");
+
+          experienceTimelineEl.innerHTML = "";
+          experienceTimelineEl.appendChild(timelineLine);
+
+          experiences.forEach((experience) => {
+            const item = document.createElement("article");
+            item.className = "timeline-item";
+
+            const bulletItems = experience["Description"]
+              .map((detail) => `<li>${detail}</li>`)
+              .join("");
+
+            item.innerHTML = `
+              <div class="timeline-card">
+                <div class="timeline-card-header">
+                  <h3>${experience["Position"]}</h3>
+                  <p class="timeline-company">
+                    ${experience["Company"]} · ${experience["Start Date"]} — ${experience["End Date"]}
+                  </p>
+                </div>
+                <ul>${bulletItems}</ul>
+              </div>
+              <span class="timeline-bullet" aria-hidden="true"></span>
+            `;
+
+            experienceTimelineEl.appendChild(item);
+          });
+
+          syncMobileCardEffects();
+        } catch (error) {
+          console.error(error);
+        }
+      }
+
+      async function loadTools() {
+        try {
+          const response = await fetch("./data/technical_skills_info_cards.json");
+          if (!response.ok) {
+            throw new Error(`Failed to load tools data: ${response.status}`);
+          }
+
+          const tools = await response.json();
+
+          toolsGridEl.innerHTML = tools
+            .map((tool) => {
+              const monogram = tool.heading
+                .split(/\s+/)
+                .slice(0, 2)
+                .map((part) => part[0]?.toUpperCase() ?? "")
+                .join("");
+
+              return `
+                <article class="tool-card">
+                  <div class="tool-card-icon" aria-hidden="true">${monogram}</div>
+                  <h3>${tool.heading}</h3>
+                  <p>${tool.description}</p>
+                </article>
+              `;
+            })
+            .join("");
+        } catch (error) {
+          console.error(error);
+        }
+      }
+
+      async function loadProjects() {
+        try {
+          const response = await fetch("./data/projects_info_cards.json");
+          if (!response.ok) {
+            throw new Error(`Failed to load project data: ${response.status}`);
+          }
+
+          const projects = await response.json();
+          projectGridEl.innerHTML = projects
+            .map(
+              (project) => `
+                <article class="project-card">
+                  <div class="project-card-media">
+                    <img
+                      class="project-card-image"
+                      src="${project.image}"
+                      alt="${project["alt-text"] || project.heading}"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="project-card-content">
+                    <h3>${project.heading}</h3>
+                    <p>${project.description}</p>
+                    ${
+                      project.link
+                        ? `<a href="${project.link}" target="_blank" rel="noreferrer noopener">View Project</a>`
+                        : '<span class="project-card-status">Coming Soon</span>'
+                    }
+                  </div>
+                </article>
+              `,
+            )
+            .join("");
+
+          syncMobileCardEffects();
+        } catch (error) {
+          console.error(error);
+        }
+      }
+
+      mobileCardQuery.addEventListener("change", syncMobileCardEffects);
+      window.addEventListener("scroll", updateScrollTopButton, { passive: true });
+      scrollTopButtonEl.addEventListener("click", scrollToTop);
+
+      setTimeout(tick, 1200);
+      loadProjects();
+      loadExperience();
+      loadTools();
+      syncMobileCardEffects();
+      updateScrollTopButton();
     </script>
   </body>
 </html>

@@ -1,17 +1,31 @@
 [
     {
-      "heading": "Donezo",
-      "description": "Todo list web application built with React.",
-      "link": "https://donezo-sooty.vercel.app/",
-      "image": "/Images/donezo.png",
-      "alt-text": "Donezo Screenshot"
+      "heading": "Stick A Pin",
+      "description": "Task management web application that allows users to create and manage tasks in a way that helps reduce the cognitive load and friction to begin.",
+      "link": "https://stickapin.app/",
+      "image": "/Images/stickapin.png",
+      "alt-text": "Stick A Pin Screenshot"
   },
   {
     "heading": "Boston Freedom Trail Web App",
     "description": "Web application that provides information about the Boston Freedom Trail and is interactive.",
     "link": "https://freedom-trail-tour.vercel.app/",
-    "image": "/Images/high_school.png",
+    "image": "/Images/bostonfreedomtrail.png",
     "alt-text": "Boston Freedom Trail Screenshot"
+},
+    {
+    "heading": "Plates of Power",
+    "description": "Plates of Power is a roguelike game inspired by Latino Culture, emphasizing power, failure, and the importance of community.",
+    "link": "",
+    "image": "/Images/plates_of_power.png",
+    "alt-text": "Plates of Power logo"
+  },
+{
+    "heading": "Talli AI",
+    "description": "In Progress",
+    "link": "",
+    "image": "/Images/talli_ai.png",
+    "alt-text": "Talli AI Screenshot"
 }
   ]
   

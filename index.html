@@ -22,9 +22,6 @@
           <a href="#contact">Contact</a>
         </nav>
 
-        <a class="hire-button" href="mailto:acbjohnson2002@gmail.com"
-          >Hire Me</a
-        >
       </header>
 
       <section class="hero-section" id="about">
@@ -47,9 +44,14 @@
 
           <div class="hero-actions">
             <a class="primary-action" href="#work">View My Work</a>
-            <a class="secondary-action" href="mailto:acbjohnson2002@gmail.com"
-              >Contact Me</a
+            <button
+              class="secondary-action"
+              id="contact-copy-button"
+              type="button"
+              aria-label="Copy acbjohnson2002@gmail.com to clipboard"
             >
+              Contact Me
+            </button>
           </div>
 
           <div class="hero-stats" aria-label="Career highlights">
@@ -159,7 +161,9 @@
 
     <script>
       const roles = ["Software Engineer", "Game Developer", "UX Designer"];
+      const emailAddress = "acbjohnson2002@gmail.com";
       const roleEl = document.getElementById("hero-role");
+      const contactCopyButtonEl = document.getElementById("contact-copy-button");
       const projectGridEl = document.getElementById("project-grid");
       const experienceTimelineEl = document.getElementById("experience-timeline");
       const toolsGridEl = document.getElementById("tools-grid");
@@ -178,6 +182,20 @@
 
       function scrollToTop() {
         window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      async function copyEmailToClipboard() {
+        try {
+          await navigator.clipboard.writeText(emailAddress);
+          contactCopyButtonEl.textContent = "Email Copied!";
+        } catch (error) {
+          console.error(error);
+          contactCopyButtonEl.textContent = "Copy Failed";
+        }
+
+        window.setTimeout(() => {
+          contactCopyButtonEl.textContent = "Contact Me";
+        }, 2000);
       }
 
       function tick() {
@@ -396,6 +414,7 @@
       mobileCardQuery.addEventListener("change", syncMobileCardEffects);
       window.addEventListener("scroll", updateScrollTopButton, { passive: true });
       scrollTopButtonEl.addEventListener("click", scrollToTop);
+      contactCopyButtonEl.addEventListener("click", copyEmailToClipboard);
 
       setTimeout(tick, 1200);
       loadProjects();

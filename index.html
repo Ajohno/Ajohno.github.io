@@ -193,12 +193,15 @@
       const experienceTimelineEl = document.getElementById("experience-timeline");
       const toolsGridEl = document.getElementById("tools-grid");
       const scrollTopButtonEl = document.getElementById("scroll-top-button");
+      const longestRoleLength = Math.max(...roles.map((role) => role.length));
       const mobileCardQuery = window.matchMedia("(max-width: 760px)");
       let mobileCardEffectsBound = false;
       let mobileCardEffectsTicking = false;
       let roleIndex = 0;
       let charIndex = roles[0].length;
       let deleting = true;
+
+      roleEl.style.setProperty("--typewriter-width", `${longestRoleLength + 1}ch`);
 
       function closeMobileMenu() {
         heroNavEl.classList.remove("is-open");

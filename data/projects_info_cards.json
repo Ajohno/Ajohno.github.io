@@ -13,6 +13,13 @@
     "image": "/Images/bostonfreedomtrail.png",
     "alt-text": "Boston Freedom Trail Screenshot"
 },
+    {
+    "heading": "Plates of Power",
+    "description": "Plates of Power is a roguelike game inspired by Latino Culture, emphasizing power, failure, and the importance of community.",
+    "link": "",
+    "image": "/Images/plates_of_power.svg",
+    "alt-text": "Plates of Power logo"
+  },
 {
     "heading": "Talli AI",
     "description": "In Progress",

@@ -9,17 +9,32 @@
   <body>
     <main class="home-page">
       <header class="hero-header">
-        <a class="brand-mark" href="#top" aria-label="Adrian Johnson home">
-          <span class="brand-icon">AJ</span>
-          <span class="brand-text">Adrian <em>Johnson</em></span>
-        </a>
+        <div class="brand-row">
+          <a class="brand-mark" href="#top" aria-label="Adrian Johnson home">
+            <span class="brand-icon">AJ</span>
+            <span class="brand-text">Adrian <em>Johnson</em></span>
+          </a>
 
-        <nav class="hero-nav" aria-label="Primary navigation">
+          <button
+            class="menu-toggle"
+            id="menu-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="primary-navigation"
+            aria-label="Open navigation menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+        <nav class="hero-nav" id="primary-navigation" aria-label="Primary navigation">
           <a href="#about">About</a>
           <a href="#projects">Projects</a>
           <a href="#experience">Experience</a>
           <a href="#tools">Tools</a>
-          <a href="#contact">Contact</a>
+          <!-- <a href="#contact">Contact</a> -->
         </nav>
 
       </header>
@@ -171,6 +186,8 @@
       const roles = ["Software Engineer", "Game Developer", "UX Designer"];
       const emailAddress = "acbjohnson2002@gmail.com";
       const roleEl = document.getElementById("hero-role");
+      const menuToggleEl = document.getElementById("menu-toggle");
+      const heroNavEl = document.getElementById("primary-navigation");
       const contactCopyButtonEl = document.getElementById("contact-copy-button");
       const projectGridEl = document.getElementById("project-grid");
       const experienceTimelineEl = document.getElementById("experience-timeline");
@@ -182,6 +199,22 @@
       let roleIndex = 0;
       let charIndex = roles[0].length;
       let deleting = true;
+
+      function closeMobileMenu() {
+        heroNavEl.classList.remove("is-open");
+        menuToggleEl.setAttribute("aria-expanded", "false");
+        menuToggleEl.setAttribute("aria-label", "Open navigation menu");
+      }
+
+      function toggleMobileMenu() {
+        const shouldOpen = !heroNavEl.classList.contains("is-open");
+        heroNavEl.classList.toggle("is-open", shouldOpen);
+        menuToggleEl.setAttribute("aria-expanded", String(shouldOpen));
+        menuToggleEl.setAttribute(
+          "aria-label",
+          shouldOpen ? "Close navigation menu" : "Open navigation menu",
+        );
+      }
 
       function updateScrollTopButton() {
         const shouldShow = window.scrollY > 320;
@@ -420,9 +453,18 @@
       }
 
       mobileCardQuery.addEventListener("change", syncMobileCardEffects);
+      mobileCardQuery.addEventListener("change", (event) => {
+        if (!event.matches) {
+          closeMobileMenu();
+        }
+      });
       window.addEventListener("scroll", updateScrollTopButton, { passive: true });
       scrollTopButtonEl.addEventListener("click", scrollToTop);
       contactCopyButtonEl.addEventListener("click", copyEmailToClipboard);
+      menuToggleEl.addEventListener("click", toggleMobileMenu);
+      heroNavEl.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", closeMobileMenu);
+      });
 
       setTimeout(tick, 1200);
       loadProjects();

@@ -455,7 +455,8 @@ a {
 }
 
 .project-card:hover .project-card-image,
-.project-card:focus-within .project-card-image {
+.project-card:focus-within .project-card-image,
+.project-card.is-active .project-card-image {
   transform: scale(1.06);
   filter: brightness(0.55);
 }
@@ -471,7 +472,8 @@ a {
 }
 
 .project-card:hover .project-card-content,
-.project-card:focus-within .project-card-content {
+.project-card:focus-within .project-card-content,
+.project-card.is-active .project-card-content {
   transform: translateY(0);
 }
 
@@ -666,9 +668,7 @@ a {
 
 @media (max-width: 760px) {
   .hero-header {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    align-items: center;
+    flex-wrap: wrap;
     gap: 1.25rem;
   }
 
@@ -710,15 +710,9 @@ a {
     flex-direction: column;
   }
 
-  .hero-actions a {
-    width: 100%;
-  }
-
+  .hero-actions a,
   .hire-button {
-    width: auto;
-    justify-self: end;
-    padding: 0.95rem 1.35rem;
-    white-space: nowrap;
+    width: 100%;
   }
 
   .hero-stats,
@@ -732,22 +726,15 @@ a {
   }
 
   .project-card {
-    min-height: 0;
+    min-height: 22rem;
   }
 
   .project-card-media {
-    position: relative;
-    min-height: 18rem;
+    min-height: 22rem;
   }
 
   .project-card-image {
-    height: 18rem;
-  }
-
-  .project-card-content {
-    position: relative;
-    transform: none;
-    background: rgba(15, 15, 15, 0.96);
+    height: 100%;
   }
 
   .experience-section,
@@ -821,11 +808,6 @@ a {
     padding-right: 1rem;
   }
 
-  .hero-header {
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 1rem;
-  }
-
   .brand-mark {
     gap: 0.75rem;
   }
@@ -857,10 +839,14 @@ a {
     padding-left: 1rem;
   }
 
+  .project-card {
+    min-height: 18rem;
+  }
+
   .project-card-image,
   .project-card-media {
-    min-height: 15rem;
-    height: 15rem;
+    min-height: 18rem;
+    height: 18rem;
   }
 
   .project-card-content {

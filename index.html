@@ -124,34 +124,100 @@
         <div class="project-grid" id="project-grid"></div>
       </section>
 
-      <section class="info-section" id="tools" aria-labelledby="tools-heading">
-        <div class="section-heading-row">
-          <h2 id="tools-heading">Technical <span>Tools</span></h2>
-          <a class="section-link" href="#projects">Explore featured work</a>
-        </div>
-
-        <div class="info-grid" id="tools-grid"></div>
-      </section>
-
       <section
-        class="experience-section info-section"
+        class="experience-section"
         id="experience"
         aria-labelledby="experience-heading"
       >
         <div class="section-heading-row">
-          <h2 id="experience-heading">Professional <span>Experience</span></h2>
-          <a class="section-link" href="#projects">Back to projects</a>
+          <h2 id="experience-heading">Professional <span>Timeline</span></h2>
+          <a class="section-link" href="#contact">View full resume</a>
         </div>
 
-        <div class="info-grid" id="experience-grid"></div>
+        <div class="timeline">
+          <div class="timeline-line"></div>
+
+          <article class="timeline-item">
+            <div class="timeline-card">
+              <div class="timeline-card-header">
+                <h3>Senior Brand Designer</h3>
+                <p class="timeline-company">
+                  Nexus Digital Agency · Jan 2021 — Present
+                </p>
+              </div>
+              <ul>
+                <li>
+                  Led brand redesign for 15+ Fortune 500 clients, boosting
+                  recognition 30%.
+                </li>
+                <li>
+                  Mentored a team of 5 junior designers with a 20% workflow
+                  speedup.
+                </li>
+                <li>
+                  Built a proprietary design system used across 3 product
+                  ecosystems.
+                </li>
+              </ul>
+            </div>
+            <span class="timeline-bullet" aria-hidden="true"></span>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-card">
+              <div class="timeline-card-header">
+                <h3>UI/UX Specialist</h3>
+                <p class="timeline-company">
+                  CloudStream SaaS · Mar 2018 — Dec 2020
+                </p>
+              </div>
+              <ul>
+                <li>
+                  Improved retention by 45% using data-driven UX improvements.
+                </li>
+                <li>
+                  Designed a mobile app interface that reached #5 in
+                  Productivity.
+                </li>
+                <li>
+                  Collaborated on a responsive CSS framework inspired by
+                  Tailwind.
+                </li>
+              </ul>
+            </div>
+            <span class="timeline-bullet" aria-hidden="true"></span>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-card">
+              <div class="timeline-card-header">
+                <h3>Junior Graphic Designer</h3>
+                <p class="timeline-company">
+                  Prism Creative Studio · Jun 2015 — Feb 2018
+                </p>
+              </div>
+              <ul>
+                <li>
+                  Created marketing collateral for 50+ small business launches.
+                </li>
+                <li>
+                  Executed high-end print production for national campaigns.
+                </li>
+                <li>
+                  Awarded "Creative of the Year" in 2017 for outstanding
+                  delivery.
+                </li>
+              </ul>
+            </div>
+            <span class="timeline-bullet" aria-hidden="true"></span>
+          </article>
+        </div>
       </section>
     </main>
     <script>
       const roles = ["Software Engineer", "Game Developer", "UX Designer"];
       const roleEl = document.getElementById("hero-role");
       const projectGridEl = document.getElementById("project-grid");
-      const toolsGridEl = document.getElementById("tools-grid");
-      const experienceGridEl = document.getElementById("experience-grid");
       const mobileProjectsQuery = window.matchMedia("(max-width: 760px)");
       let projectCardObserver;
       let roleIndex = 0;
@@ -227,43 +293,6 @@
         projectCards.forEach((card) => projectCardObserver.observe(card));
       }
 
-      function buildInfoCard(card, type) {
-        const subtitle = type === "experience" && card.position
-          ? `<p class="info-card-subtitle">${card.position}</p>`
-          : "";
-
-        return `
-          <article class="info-card">
-            <div class="info-card-media">
-              <img class="info-card-image" src="${card.image}" alt="${card["alt-text"] || card.heading}" loading="lazy" />
-            </div>
-            <div class="info-card-content">
-              <h3>${card.heading}</h3>
-              ${subtitle}
-              <p>${card.description}</p>
-            </div>
-          </article>
-        `;
-      }
-
-      async function loadInfoGrid({ gridElement, jsonPath, type }) {
-        if (!gridElement) {
-          return;
-        }
-
-        try {
-          const response = await fetch(jsonPath);
-          if (!response.ok) {
-            throw new Error(`Failed to load ${jsonPath}: ${response.status}`);
-          }
-
-          const cards = await response.json();
-          gridElement.innerHTML = cards.map((card) => buildInfoCard(card, type)).join("");
-        } catch (error) {
-          console.error(error);
-        }
-      }
-
       async function loadProjects() {
         try {
           const response = await fetch("./data/projects_info_cards.json");
@@ -312,8 +341,6 @@
 
       setTimeout(tick, 1200);
       loadProjects();
-      loadInfoGrid({ gridElement: toolsGridEl, jsonPath: "./data/technical_skills_info_cards.json", type: "tools" });
-      loadInfoGrid({ gridElement: experienceGridEl, jsonPath: "./data/experience_info_cards.json", type: "experience" });
     </script>
   </body>
 </html>

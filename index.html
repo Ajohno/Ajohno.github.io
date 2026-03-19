@@ -18,6 +18,7 @@
           <a href="#about">About</a>
           <a href="#projects">Projects</a>
           <a href="#experience">Experience</a>
+          <a href="#tools">Tools</a>
           <a href="#contact">Contact</a>
         </nav>
 
@@ -121,58 +122,7 @@
           <a class="section-link" href="#projects">Explore all projects</a>
         </div>
 
-        <div class="project-grid">
-          <article class="project-card">
-            <div class="project-card-media project-card-media--analytics"></div>
-            <div class="project-card-content">
-              <div class="project-tags">
-                <span>Web</span>
-                <span>UX</span>
-              </div>
-              <h3>Stick A Pin</h3>
-              <p>
-                Task management web application that allows users to create and
-                manage tasks in a way that helps reduce the cognitive load and
-                friction to begin.
-              </p>
-
-              <a href="https://www.stickapin.app" target="_blank">View</a>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-card-media project-card-media--frame"></div>
-            <div class="project-card-content">
-              <div class="project-tags">
-                <span>Web</span>
-                <span>Mobile</span>
-              </div>
-              <h3>Boston Freedom Trail Web App</h3>
-              <p>
-                Web application that provides information about the Boston
-                Freedom Trail and is interactive.
-              </p>
-              <a href="https://freedom-trail-tour.vercel.app/" target="_blank"
-                >View</a
-              >
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-card-media project-card-media--platform"></div>
-            <div class="project-card-content">
-              <div class="project-tags">
-                <span>Web</span>
-                <span>AI</span>
-              </div>
-              <h3>Talli AI</h3>
-              <p>
-                An AI assistant web application that is used as an AI companion.
-              </p>
-              <a href="#projects">In Progress</a>
-            </div>
-          </article>
-        </div>
+        <div class="project-grid" id="project-grid"></div>
       </section>
 
       <section
@@ -185,92 +135,50 @@
           <a class="section-link" href="#contact">View full resume</a>
         </div>
 
-        <div class="timeline">
+        <div class="timeline" id="experience-timeline">
           <div class="timeline-line"></div>
-
-          <article class="timeline-item">
-            <div class="timeline-card">
-              <div class="timeline-card-header">
-                <h3>Senior Brand Designer</h3>
-                <p class="timeline-company">
-                  Nexus Digital Agency · Jan 2021 — Present
-                </p>
-              </div>
-              <ul>
-                <li>
-                  Led brand redesign for 15+ Fortune 500 clients, boosting
-                  recognition 30%.
-                </li>
-                <li>
-                  Mentored a team of 5 junior designers with a 20% workflow
-                  speedup.
-                </li>
-                <li>
-                  Built a proprietary design system used across 3 product
-                  ecosystems.
-                </li>
-              </ul>
-            </div>
-            <span class="timeline-bullet" aria-hidden="true"></span>
-          </article>
-
-          <article class="timeline-item">
-            <div class="timeline-card">
-              <div class="timeline-card-header">
-                <h3>UI/UX Specialist</h3>
-                <p class="timeline-company">
-                  CloudStream SaaS · Mar 2018 — Dec 2020
-                </p>
-              </div>
-              <ul>
-                <li>
-                  Improved retention by 45% using data-driven UX improvements.
-                </li>
-                <li>
-                  Designed a mobile app interface that reached #5 in
-                  Productivity.
-                </li>
-                <li>
-                  Collaborated on a responsive CSS framework inspired by
-                  Tailwind.
-                </li>
-              </ul>
-            </div>
-            <span class="timeline-bullet" aria-hidden="true"></span>
-          </article>
-
-          <article class="timeline-item">
-            <div class="timeline-card">
-              <div class="timeline-card-header">
-                <h3>Junior Graphic Designer</h3>
-                <p class="timeline-company">
-                  Prism Creative Studio · Jun 2015 — Feb 2018
-                </p>
-              </div>
-              <ul>
-                <li>
-                  Created marketing collateral for 50+ small business launches.
-                </li>
-                <li>
-                  Executed high-end print production for national campaigns.
-                </li>
-                <li>
-                  Awarded "Creative of the Year" in 2017 for outstanding
-                  delivery.
-                </li>
-              </ul>
-            </div>
-            <span class="timeline-bullet" aria-hidden="true"></span>
-          </article>
         </div>
       </section>
+
+      <section class="tools-section" id="tools" aria-labelledby="tools-heading">
+        <div class="tools-section-header">
+          <div>
+            <h2 id="tools-heading">Mastered <span>Tools</span></h2>
+            <p>
+              The sophisticated arsenal I employ to transform visionary concepts
+              into digital realities.
+            </p>
+          </div>
+        </div>
+
+        <div class="tools-grid" id="tools-grid"></div>
+      </section>
     </main>
+
+    <button class="scroll-top-button" id="scroll-top-button" type="button" aria-label="Scroll to top">↑</button>
+
     <script>
       const roles = ["Software Engineer", "Game Developer", "UX Designer"];
       const roleEl = document.getElementById("hero-role");
+      const projectGridEl = document.getElementById("project-grid");
+      const experienceTimelineEl = document.getElementById("experience-timeline");
+      const toolsGridEl = document.getElementById("tools-grid");
+      const scrollTopButtonEl = document.getElementById("scroll-top-button");
+      const mobileCardQuery = window.matchMedia("(max-width: 760px)");
+      let mobileCardEffectsBound = false;
+      let mobileCardEffectsTicking = false;
       let roleIndex = 0;
       let charIndex = roles[0].length;
       let deleting = true;
+
+      function updateScrollTopButton() {
+        const shouldShow = window.scrollY > 320;
+        scrollTopButtonEl.classList.toggle("is-visible", shouldShow);
+      }
+
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
 
       function tick() {
         const current = roles[roleIndex];
@@ -303,7 +211,198 @@
         setTimeout(tick, 90);
       }
 
+      function setCenteredActiveCard(selector) {
+        const cards = Array.from(document.querySelectorAll(selector));
+        let closestCard = null;
+        let closestDistance = Number.POSITIVE_INFINITY;
+        const viewportCenter = window.innerHeight / 2;
+
+        cards.forEach((card) => {
+          card.classList.remove("is-active");
+
+          const rect = card.getBoundingClientRect();
+          const isVisible = rect.bottom > 0 && rect.top < window.innerHeight;
+          if (!isVisible) {
+            return;
+          }
+
+          const cardCenter = rect.top + rect.height / 2;
+          const distance = Math.abs(cardCenter - viewportCenter);
+
+          if (distance < closestDistance) {
+            closestDistance = distance;
+            closestCard = card;
+          }
+        });
+
+        if (closestCard) {
+          closestCard.classList.add("is-active");
+        }
+      }
+
+      function applyMobileCardEffects() {
+        mobileCardEffectsTicking = false;
+
+        if (!mobileCardQuery.matches) {
+          document
+            .querySelectorAll(".project-card, .timeline-card")
+            .forEach((card) => card.classList.remove("is-active"));
+          return;
+        }
+
+        setCenteredActiveCard(".project-card");
+        setCenteredActiveCard(".timeline-card");
+      }
+
+      function scheduleMobileCardEffects() {
+        if (mobileCardEffectsTicking) {
+          return;
+        }
+
+        mobileCardEffectsTicking = true;
+        window.requestAnimationFrame(applyMobileCardEffects);
+      }
+
+      function syncMobileCardEffects() {
+        if (mobileCardQuery.matches && !mobileCardEffectsBound) {
+          window.addEventListener("scroll", scheduleMobileCardEffects, { passive: true });
+          window.addEventListener("resize", scheduleMobileCardEffects);
+          mobileCardEffectsBound = true;
+        }
+
+        if (!mobileCardQuery.matches && mobileCardEffectsBound) {
+          window.removeEventListener("scroll", scheduleMobileCardEffects);
+          window.removeEventListener("resize", scheduleMobileCardEffects);
+          mobileCardEffectsBound = false;
+        }
+
+        applyMobileCardEffects();
+      }
+
+      async function loadExperience() {
+        try {
+          const response = await fetch("./data/experience_info_cards.json");
+          if (!response.ok) {
+            throw new Error(`Failed to load experience data: ${response.status}`);
+          }
+
+          const experiences = await response.json();
+          const timelineLine = experienceTimelineEl.querySelector(".timeline-line");
+
+          experienceTimelineEl.innerHTML = "";
+          experienceTimelineEl.appendChild(timelineLine);
+
+          experiences.forEach((experience) => {
+            const item = document.createElement("article");
+            item.className = "timeline-item";
+
+            const bulletItems = experience["Description"]
+              .map((detail) => `<li>${detail}</li>`)
+              .join("");
+
+            item.innerHTML = `
+              <div class="timeline-card">
+                <div class="timeline-card-header">
+                  <h3>${experience["Position"]}</h3>
+                  <p class="timeline-company">
+                    ${experience["Company"]} · ${experience["Start Date"]} — ${experience["End Date"]}
+                  </p>
+                </div>
+                <ul>${bulletItems}</ul>
+              </div>
+              <span class="timeline-bullet" aria-hidden="true"></span>
+            `;
+
+            experienceTimelineEl.appendChild(item);
+          });
+
+          syncMobileCardEffects();
+        } catch (error) {
+          console.error(error);
+        }
+      }
+
+      async function loadTools() {
+        try {
+          const response = await fetch("./data/technical_skills_info_cards.json");
+          if (!response.ok) {
+            throw new Error(`Failed to load tools data: ${response.status}`);
+          }
+
+          const tools = await response.json();
+
+          toolsGridEl.innerHTML = tools
+            .map((tool) => {
+              const monogram = tool.heading
+                .split(/\s+/)
+                .slice(0, 2)
+                .map((part) => part[0]?.toUpperCase() ?? "")
+                .join("");
+
+              return `
+                <article class="tool-card">
+                  <div class="tool-card-icon" aria-hidden="true">${monogram}</div>
+                  <h3>${tool.heading}</h3>
+                  <p>${tool.description}</p>
+                </article>
+              `;
+            })
+            .join("");
+        } catch (error) {
+          console.error(error);
+        }
+      }
+
+      async function loadProjects() {
+        try {
+          const response = await fetch("./data/projects_info_cards.json");
+          if (!response.ok) {
+            throw new Error(`Failed to load project data: ${response.status}`);
+          }
+
+          const projects = await response.json();
+          projectGridEl.innerHTML = projects
+            .map(
+              (project) => `
+                <article class="project-card">
+                  <div class="project-card-media">
+                    <img
+                      class="project-card-image"
+                      src="${project.image}"
+                      alt="${project["alt-text"] || project.heading}"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="project-card-content">
+                    <h3>${project.heading}</h3>
+                    <p>${project.description}</p>
+                    ${
+                      project.link
+                        ? `<a href="${project.link}" target="_blank" rel="noreferrer noopener">View Project</a>`
+                        : '<span class="project-card-status">Coming Soon</span>'
+                    }
+                  </div>
+                </article>
+              `,
+            )
+            .join("");
+
+          syncMobileCardEffects();
+        } catch (error) {
+          console.error(error);
+        }
+      }
+
+      mobileCardQuery.addEventListener("change", syncMobileCardEffects);
+      window.addEventListener("scroll", updateScrollTopButton, { passive: true });
+      scrollTopButtonEl.addEventListener("click", scrollToTop);
+
       setTimeout(tick, 1200);
+      loadProjects();
+      loadExperience();
+      loadTools();
+      syncMobileCardEffects();
+      updateScrollTopButton();
     </script>
   </body>
 </html>

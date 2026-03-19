@@ -446,6 +446,17 @@ a {
   font-style: italic;
 }
 
+.section-heading-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.9rem;
+}
+
+.section-heading-row--stacked {
+  justify-content: flex-start;
+}
+
 .section-link {
   color: #d1a548;
   font-weight: 700;

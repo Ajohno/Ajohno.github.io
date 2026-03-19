@@ -62,6 +62,7 @@ a {
 }
 
 .hero-header {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -127,7 +128,8 @@ a {
   padding: 0;
   border: 1px solid rgba(209, 165, 72, 0.24);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(15, 15, 15, 0.9);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
   cursor: pointer;
 }
 
@@ -870,25 +872,39 @@ a {
   }
 
   .hero-nav {
-    display: none;
-    width: 100%;
+    position: absolute;
+    top: calc(100% + 0.35rem);
+    left: 1rem;
+    right: 1rem;
+    z-index: 30;
+    display: flex;
+    width: auto;
     flex-direction: column;
     align-items: stretch;
     gap: 1rem;
     padding: 1.25rem;
-    border: 1px solid rgba(209, 165, 72, 0.16);
+    border: 1px solid rgba(209, 165, 72, 0.2);
     border-radius: 2rem;
-    background: rgba(250, 248, 244, 0.95);
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(180deg, rgba(13, 13, 13, 0.98), rgba(9, 9, 9, 0.98));
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(14px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-0.5rem);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
   }
 
   .hero-nav.is-open {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
   }
 
   .hero-nav a {
     padding: 0;
-    color: #1b1b1b;
+    color: #f6f3ee;
     font-size: 1.8rem;
     font-weight: 700;
     line-height: 1.2;
@@ -1174,6 +1190,13 @@ a {
   }
 
   .hero-nav {
+    padding: 1rem;
+    border-radius: 1.5rem;
+  }
+
+  .hero-nav {
+    left: 1rem;
+    right: 1rem;
     padding: 1rem;
     border-radius: 1.5rem;
   }

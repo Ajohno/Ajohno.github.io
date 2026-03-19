@@ -122,7 +122,6 @@ a {
   color: #f6f3ee;
 }
 
-.hire-button,
 .primary-action {
   display: inline-flex;
   align-items: center;
@@ -194,6 +193,9 @@ a {
   border-radius: 1rem;
   border: 1px solid rgba(198, 154, 63, 0.35);
   color: #d5b15a;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
 }
 
 .hero-stats {
@@ -807,8 +809,7 @@ a {
     gap: 1.25rem;
   }
 
-  .brand-mark,
-  .hire-button {
+  .brand-mark {
     min-width: auto;
   }
 
@@ -846,7 +847,7 @@ a {
   }
 
   .hero-actions a,
-  .hire-button {
+  .hero-actions button {
     width: 100%;
   }
 

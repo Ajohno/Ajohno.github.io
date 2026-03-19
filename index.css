@@ -908,6 +908,15 @@ a {
     font-size: 1.8rem;
     font-weight: 700;
     line-height: 1.2;
+    transform-origin: left center;
+    transition: color 0.2s ease, transform 0.2s ease, letter-spacing 0.2s ease;
+  }
+
+  .hero-nav a:hover,
+  .hero-nav a:focus-visible {
+    color: #d1a548;
+    letter-spacing: 0.03em;
+    transform: translateX(0.35rem);
   }
 
   .menu-toggle[aria-expanded="true"] span:first-child {

@@ -253,39 +253,80 @@
         setTimeout(tick, 90);
       }
 
-      async function loadProjects() {
-        try {
-          const response = await fetch("./data/projects_info_cards.json");
-          if (!response.ok) {
-            throw new Error(`Failed to load project data: ${response.status}`);
+      function renderProjects(projects) {
+        if (!projectGridEl) {
+          return;
+        }
+
+        projectGridEl.replaceChildren();
+
+        projects.forEach((project) => {
+          const card = document.createElement("article");
+          card.className = "project-card";
+
+          const media = document.createElement("div");
+          media.className = "project-card-media";
+
+          const image = document.createElement("img");
+          image.className = "project-card-image";
+          image.src = project.image;
+          image.alt = project["alt-text"] || project.heading;
+          image.loading = "lazy";
+          media.appendChild(image);
+
+          const content = document.createElement("div");
+          content.className = "project-card-content";
+
+          const heading = document.createElement("h3");
+          heading.textContent = project.heading;
+
+          const description = document.createElement("p");
+          description.textContent = project.description;
+
+          content.append(heading, description);
+
+          if (project.link) {
+            const link = document.createElement("a");
+            link.href = project.link;
+            link.target = "_blank";
+            link.rel = "noreferrer noopener";
+            link.textContent = "View Project";
+            content.appendChild(link);
+          } else {
+            const status = document.createElement("span");
+            status.className = "project-card-status";
+            status.textContent = "Coming Soon";
+            content.appendChild(status);
           }
 
-          const projects = await response.json();
-          projectGridEl.innerHTML = projects
-            .map(
-              (project) => `
-                <article class="project-card">
-                  <div class="project-card-media">
-                    <img
-                      class="project-card-image"
-                      src="${project.image}"
-                      alt="${project["alt-text"] || project.heading}"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div class="project-card-content">
-                    <h3>${project.heading}</h3>
-                    <p>${project.description}</p>
-                    ${
-                      project.link
-                        ? `<a href="${project.link}" target="_blank" rel="noreferrer noopener">View Project</a>`
-                        : '<span class="project-card-status">Coming Soon</span>'
-                    }
-                  </div>
-                </article>
-              `,
-            )
-            .join("");
+          card.append(media, content);
+          projectGridEl.appendChild(card);
+        });
+      }
+
+      async function loadProjects() {
+        const dataPaths = [
+          "./data/projects_info_cards.json",
+          "/data/projects_info_cards.json",
+          "data/projects_info_cards.json",
+        ];
+
+        try {
+          let projects = null;
+
+          for (const path of dataPaths) {
+            const response = await fetch(path, { cache: "no-store" });
+            if (response.ok) {
+              projects = await response.json();
+              break;
+            }
+          }
+
+          if (!projects) {
+            throw new Error("Failed to load project data from available paths.");
+          }
+
+          renderProjects(projects);
         } catch (error) {
           console.error(error);
         }

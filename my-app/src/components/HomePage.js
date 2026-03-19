@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './HomePage.css';
 import LanyardCard from './LanyardCard';
 
@@ -10,10 +10,13 @@ const stats = [
 
 const navItems = ['Work', 'Experience', 'About', 'Contact'];
 const roles = ['Software Engineer', 'Game Developer', 'UX Designer'];
+const emailAddress = 'acbjohnson2002@gmail.com';
 
 function HomePage() {
   const [roleText, setRoleText] = useState(roles[0]);
   const [projects, setProjects] = useState([]);
+  const [contactMessage, setContactMessage] = useState('Contact Me');
+  const contactTimeoutRef = useRef(null);
 
   useEffect(() => {
     let roleIndex = 0;
@@ -56,6 +59,30 @@ function HomePage() {
 
     return () => clearTimeout(timeoutId);
   }, []);
+
+  useEffect(() => () => {
+    if (contactTimeoutRef.current) {
+      clearTimeout(contactTimeoutRef.current);
+    }
+  }, []);
+
+  const handleContactClick = async () => {
+    try {
+      await navigator.clipboard.writeText(emailAddress);
+      setContactMessage('Email Copied!');
+    } catch (error) {
+      console.error(error);
+      setContactMessage('Copy Failed');
+    }
+
+    if (contactTimeoutRef.current) {
+      clearTimeout(contactTimeoutRef.current);
+    }
+
+    contactTimeoutRef.current = setTimeout(() => {
+      setContactMessage('Contact Me');
+    }, 2000);
+  };
 
   useEffect(() => {
     let isMounted = true;
@@ -100,10 +127,6 @@ function HomePage() {
             </a>
           ))}
         </nav>
-
-        <a className="hire-button" href="mailto:acbjohnson2002@gmail.com">
-          Hire Me
-        </a>
       </header>
 
       <section className="hero-section">
@@ -124,9 +147,14 @@ function HomePage() {
             <a className="primary-action" href="#work">
               View My Work
             </a>
-            <a className="secondary-action" href="mailto:acbjohnson2002@gmail.com">
-              Contact Me
-            </a>
+            <button
+              type="button"
+              className="secondary-action"
+              onClick={handleContactClick}
+              aria-label={`Copy ${emailAddress} to clipboard`}
+            >
+              {contactMessage}
+            </button>
           </div>
 
           <div className="hero-stats" aria-label="Career highlights">

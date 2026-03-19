@@ -71,7 +71,6 @@
   color: #f6f3ee;
 }
 
-.hire-button,
 .primary-action {
   display: inline-flex;
   align-items: center;
@@ -144,6 +143,9 @@
   border-radius: 1rem;
   border: 1px solid rgba(198, 154, 63, 0.35);
   color: #d5b15a;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
 }
 
 .hero-stats {
@@ -180,8 +182,6 @@
   min-height: 44rem;
   align-items: center;
 }
-
-
 
 .featured-projects {
   padding: 1rem 2rem 5rem;
@@ -320,8 +320,7 @@
     flex-wrap: wrap;
   }
 
-  .brand-mark,
-  .hire-button {
+  .brand-mark {
     min-width: auto;
   }
 

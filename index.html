@@ -18,6 +18,7 @@
           <a href="#about">About</a>
           <a href="#projects">Projects</a>
           <a href="#experience">Experience</a>
+          <a href="#tools">Tools</a>
           <a href="#contact">Contact</a>
         </nav>
 
@@ -137,29 +138,47 @@
         <div class="timeline" id="experience-timeline">
           <div class="timeline-line"></div>
         </div>
+      </section>
 
-        <div class="tools-showcase" aria-labelledby="tools-heading">
-          <div class="tools-showcase-copy">
-            <h3 id="tools-heading">Mastered Tools</h3>
+      <section class="tools-section" id="tools" aria-labelledby="tools-heading">
+        <div class="tools-section-header">
+          <div>
+            <h2 id="tools-heading">Mastered <span>Tools</span></h2>
             <p>
-              The sophisticated arsenal I employ to transform visionary concepts into digital realities.
+              The sophisticated arsenal I employ to transform visionary concepts
+              into digital realities.
             </p>
           </div>
-          <div class="tools-chip-grid" id="tools-chip-grid"></div>
         </div>
+
+        <div class="tools-grid" id="tools-grid"></div>
       </section>
     </main>
+
+    <button class="scroll-top-button" id="scroll-top-button" type="button" aria-label="Scroll to top">↑</button>
+
     <script>
       const roles = ["Software Engineer", "Game Developer", "UX Designer"];
       const roleEl = document.getElementById("hero-role");
       const projectGridEl = document.getElementById("project-grid");
       const experienceTimelineEl = document.getElementById("experience-timeline");
-      const toolsChipGridEl = document.getElementById("tools-chip-grid");
-      const mobileProjectsQuery = window.matchMedia("(max-width: 760px)");
-      let projectCardObserver;
+      const toolsGridEl = document.getElementById("tools-grid");
+      const scrollTopButtonEl = document.getElementById("scroll-top-button");
+      const mobileCardQuery = window.matchMedia("(max-width: 760px)");
+      let mobileCardEffectsBound = false;
+      let mobileCardEffectsTicking = false;
       let roleIndex = 0;
       let charIndex = roles[0].length;
       let deleting = true;
+
+      function updateScrollTopButton() {
+        const shouldShow = window.scrollY > 320;
+        scrollTopButtonEl.classList.toggle("is-visible", shouldShow);
+      }
+
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
 
       function tick() {
         const current = roles[roleIndex];
@@ -268,9 +287,37 @@
             throw new Error(`Failed to load experience data: ${response.status}`);
           }
 
-          const experience = await response.json();
-          const timelineItems = experience.map((card, index) => buildTimelineItem(card, index)).join("");
-          experienceTimelineEl.innerHTML = `<div class="timeline-line"></div>${timelineItems}`;
+          const experiences = await response.json();
+          const timelineLine = experienceTimelineEl.querySelector(".timeline-line");
+
+          experienceTimelineEl.innerHTML = "";
+          experienceTimelineEl.appendChild(timelineLine);
+
+          experiences.forEach((experience) => {
+            const item = document.createElement("article");
+            item.className = "timeline-item";
+
+            const bulletItems = experience["Description"]
+              .map((detail) => `<li>${detail}</li>`)
+              .join("");
+
+            item.innerHTML = `
+              <div class="timeline-card">
+                <div class="timeline-card-header">
+                  <h3>${experience["Position"]}</h3>
+                  <p class="timeline-company">
+                    ${experience["Company"]} · ${experience["Start Date"]} — ${experience["End Date"]}
+                  </p>
+                </div>
+                <ul>${bulletItems}</ul>
+              </div>
+              <span class="timeline-bullet" aria-hidden="true"></span>
+            `;
+
+            experienceTimelineEl.appendChild(item);
+          });
+
+          syncMobileCardEffects();
         } catch (error) {
           console.error(error);
         }
@@ -288,7 +335,24 @@
           }
 
           const tools = await response.json();
-          toolsChipGridEl.innerHTML = tools.map((card) => buildToolChip(card)).join("");
+
+          toolsGridEl.innerHTML = tools
+            .map((tool) => {
+              const monogram = tool.heading
+                .split(/\s+/)
+                .slice(0, 2)
+                .map((part) => part[0]?.toUpperCase() ?? "")
+                .join("");
+
+              return `
+                <article class="tool-card">
+                  <div class="tool-card-icon" aria-hidden="true">${monogram}</div>
+                  <h3>${tool.heading}</h3>
+                  <p>${tool.description}</p>
+                </article>
+              `;
+            })
+            .join("");
         } catch (error) {
           console.error(error);
         }
@@ -334,16 +398,16 @@
         }
       }
 
-      if (typeof mobileProjectsQuery.addEventListener === "function") {
-        mobileProjectsQuery.addEventListener("change", updateCenteredProjectCards);
-      } else if (typeof mobileProjectsQuery.addListener === "function") {
-        mobileProjectsQuery.addListener(updateCenteredProjectCards);
-      }
+      mobileCardQuery.addEventListener("change", syncMobileCardEffects);
+      window.addEventListener("scroll", updateScrollTopButton, { passive: true });
+      scrollTopButtonEl.addEventListener("click", scrollToTop);
 
       setTimeout(tick, 1200);
       loadProjects();
-      loadExperienceTimeline();
-      loadToolsShowcase();
+      loadExperience();
+      loadTools();
+      syncMobileCardEffects();
+      updateScrollTopButton();
     </script>
   </body>
 </html>

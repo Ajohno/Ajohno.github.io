@@ -1,10 +1,37 @@
 [
-    {
-      "heading": "JP Morgan Chase & Co.",
-      "position": "Advancing Black Pathways Fellow",
-      "description": "Participated in a 10-week internship program focused on financial services and technology.",
-      "image": "/Images/handshake.png",
-      "alt-text": "React Logo"
+  {
+    "Position": "Information & Communications Technology Intern",
+    "Company": "Betting Gaming & Lotteries Commission Jamaica",
+    "Start Date": "September 2025",
+    "End Date": "Present",
+    "Description": [
+      "Assisted in redesigning the agency’s internal intranet, migrating from Drupal to WordPress for improved usability, security and content management.",
+      "Set up and configured a WAMP development environment and implemented custom CSS/JS animations using Elementor and Spectra.",
+      "Designed and styled dynamic components such as announcements, events and department pages with responsive layouts.",
+      "Integrated backend data using WP Data Access for secure and interactive content management.",
+      "Documented custom code and UI standards to support future developers and system maintainers."
+    ]
+  },
+  {
+    "Position": "Advancing Black Pathways SEP Fellow",
+    "Company": "JP Morgan Chase & Co.",
+    "Start Date": "June 2023",
+    "End Date": "August 2023",
+    "Description": [
+      "Assessed a company’s problem and proposed actionable solutions during a Business Sprint Project, resulting in clear strategic recommendations.",
+      "Developed attack and defence strategies for virtual robots using Robocode, strengthening algorithmic robustness and enabling more consistent success in competitive simulations.",
+      "Developed a full-stack application through a tech primer, implementing front-end and back-end components to produce a working MVP that provided me with hands on experience."
+    ]
+  },
+  {
+    "Position": "Information Technology Intern",
+    "Company": "Appliance Traders Ltd. Jamaica",
+    "Start Date": "July 2022",
+    "End Date": "August 2022",
+    "Description": [
+      "Provisioned multiple desktops and laptops for new hires, ensuring seamless onboarding.",
+      "Delivered effective desktop support and software installation across multiple departments, streamlining IT operations and boosting end-user productivity.",
+      "Integrated new systems into the corporate domain and resolved technical issues promptly."
+    ]
   }
-  ]
-  
+]

@@ -812,10 +812,19 @@ a {
     min-width: auto;
   }
 
+  .brand-mark {
+    min-width: 0;
+  }
+
+  .brand-text {
+    font-size: 1rem;
+  }
+
   .hero-nav {
-    order: 3;
+    grid-column: 1 / -1;
+    order: initial;
     width: 100%;
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: 1rem;
     flex-wrap: wrap;
   }

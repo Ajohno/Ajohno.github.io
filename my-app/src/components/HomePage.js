@@ -10,29 +10,10 @@ const stats = [
 
 const navItems = ['Work', 'Experience', 'About', 'Contact'];
 const roles = ['Software Engineer', 'Game Developer', 'UX Designer'];
-const projects = [
-  {
-    title: 'Nexus Wallet',
-    description: 'A streamlined fintech experience focused on making portfolio management, payments, and wallet insights easier to understand.',
-    tags: ['Product', 'Fintech'],
-    mediaClass: 'project-card-media--analytics',
-  },
-  {
-    title: 'Velvet Luxe',
-    description: 'A polished commerce concept for premium retail experiences with a strong focus on conversion, clarity, and visual storytelling.',
-    tags: ['E-Commerce', 'Mobile'],
-    mediaClass: 'project-card-media--frame',
-  },
-  {
-    title: 'DataFlow AI',
-    description: 'A dashboard concept that turns dense operational data into useful, readable workflows for product and business teams.',
-    tags: ['SaaS', 'B2B'],
-    mediaClass: 'project-card-media--platform',
-  },
-];
 
 function HomePage() {
   const [roleText, setRoleText] = useState(roles[0]);
+  const [projects, setProjects] = useState([]);
 
   useEffect(() => {
     let roleIndex = 0;
@@ -74,6 +55,32 @@ function HomePage() {
     timeoutId = setTimeout(tick, 1200);
 
     return () => clearTimeout(timeoutId);
+  }, []);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    const loadProjects = async () => {
+      try {
+        const response = await fetch(`${process.env.PUBLIC_URL}/data/projects_info_cards.json`);
+        if (!response.ok) {
+          throw new Error(`Failed to load project data: ${response.status}`);
+        }
+
+        const projectData = await response.json();
+        if (isMounted) {
+          setProjects(projectData);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    loadProjects();
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   return (
@@ -149,23 +156,30 @@ function HomePage() {
 
         <div className="project-grid">
           {projects.map((project) => (
-            <article key={project.title} className="project-card">
-              <div className={`project-card-media ${project.mediaClass}`}></div>
+            <article key={project.heading} className="project-card">
+              <div className="project-card-media">
+                <img
+                  className="project-card-image"
+                  src={`${process.env.PUBLIC_URL}${project.image}`}
+                  alt={project['alt-text']}
+                  loading="lazy"
+                />
+              </div>
               <div className="project-card-content">
-                <div className="project-tags">
-                  {project.tags.map((tag) => (
-                    <span key={tag}>{tag}</span>
-                  ))}
-                </div>
-                <h3>{project.title}</h3>
+                <h3>{project.heading}</h3>
                 <p>{project.description}</p>
-                <a href="#contact">Case Study</a>
+                {project.link ? (
+                  <a href={project.link} target="_blank" rel="noreferrer">
+                    View Project
+                  </a>
+                ) : (
+                  <span className="project-card-status">Coming Soon</span>
+                )}
               </div>
             </article>
           ))}
         </div>
       </section>
-
     </main>
   );
 }

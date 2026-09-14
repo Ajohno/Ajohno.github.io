@@ -1,37 +1,34 @@
 [
   {
-    "Position": "Information & Communications Technology Intern",
-    "Company": "Betting Gaming & Lotteries Commission Jamaica",
-    "Start Date": "September 2025",
+    "Position": "Programmer Analyst",
+    "Company": "Betting Gaming & Lotteries Commission",
+    "Start Date": "August 2026",
     "End Date": "Present",
     "Description": [
-      "Assisted in redesigning the agency’s internal intranet, migrating from Drupal to WordPress for improved usability, security and content management.",
-      "Set up and configured a WAMP development environment and implemented custom CSS/JS animations using Elementor and Spectra.",
-      "Designed and styled dynamic components such as announcements, events and department pages with responsive layouts.",
-      "Integrated backend data using WP Data Access for secure and interactive content management.",
-      "Documented custom code and UI standards to support future developers and system maintainers."
+      "Developed and tested a reusable PHP/WordPress plugin that redirects legacy customer-portal URLs to the active service without a paid redirect plugin.",
+      "Enriched licensing reports by reviewing 400+ POSSE records and adding contact, ownership, and notification-date fields to support compliance inspection planning and data accuracy.",
+      "Investigated production WordPress errors and documented diagnostic findings to support application reliability."
     ]
   },
   {
-    "Position": "Advancing Black Pathways SEP Fellow",
-    "Company": "JP Morgan Chase & Co.",
+    "Position": "ICT Intern",
+    "Company": "Betting Gaming & Lotteries Commission",
+    "Start Date": "September 2025",
+    "End Date": "August 2026",
+    "Description": [
+      "Supported a Drupal-to-WordPress intranet migration by building four responsive pages for a 121-user organization across 9 departments.",
+      "Built 7 reusable and interactive intranet components and supported department-based page structures across 9 departments.",
+      "Improved maintainability through reusable card components and documented WordPress features in a local WAMP environment."
+    ]
+  },
+  {
+    "Position": "Advancing Black Pathways Fellow",
+    "Company": "JPMorgan Chase & Co.",
     "Start Date": "June 2023",
     "End Date": "August 2023",
     "Description": [
-      "Assessed a company’s problem and proposed actionable solutions during a Business Sprint Project, resulting in clear strategic recommendations.",
-      "Developed attack and defence strategies for virtual robots using Robocode, strengthening algorithmic robustness and enabling more consistent success in competitive simulations.",
-      "Developed a full-stack application through a tech primer, implementing front-end and back-end components to produce a working MVP that provided me with hands on experience."
-    ]
-  },
-  {
-    "Position": "Information Technology Intern",
-    "Company": "Appliance Traders Ltd. Jamaica",
-    "Start Date": "July 2022",
-    "End Date": "August 2022",
-    "Description": [
-      "Provisioned multiple desktops and laptops for new hires, ensuring seamless onboarding.",
-      "Delivered effective desktop support and software installation across multiple departments, streamlining IT operations and boosting end-user productivity.",
-      "Integrated new systems into the corporate domain and resolved technical issues promptly."
+      "Assessed a company problem during a Business Sprint Project and presented actionable recommendations to peers, mentors, and senior company leaders.",
+      "Built a full-stack MVP during a technical primer and developed Robocode attack/defense strategies to strengthen algorithmic thinking."
     ]
   }
 ]

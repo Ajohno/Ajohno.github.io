@@ -3,7 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b0b0b" />
+    <meta name="apple-mobile-web-app-title" content="Adrian Johnson" />
     <title>Adrian Johnson | Portfolio</title>
+    <link rel="icon" type="image/png" sizes="64x64" href="/Images/favicon-64x64.png" />
+    <link rel="apple-touch-icon" href="/Images/Headshot.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
@@ -59,14 +64,31 @@
 
           <div class="hero-actions">
             <a class="primary-action" href="#projects">View My Work</a>
-            <button
-              class="secondary-action"
-              id="contact-copy-button"
-              type="button"
-              aria-label="Copy acbjohnson2002@gmail.com to clipboard"
-            >
-              Contact Me
-            </button>
+            <div class="hero-contact-actions">
+              <button
+                class="secondary-action"
+                id="contact-button"
+                type="button"
+                aria-haspopup="dialog"
+                aria-controls="contact-dialog"
+              >
+                Contact Me
+              </button>
+              <a
+                class="linkedin-action"
+                href="https://www.linkedin.com/in/ajohnojohnson"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open Adrian Johnson's LinkedIn profile"
+                title="LinkedIn"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.32 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.1 20.45H3.54V9H7.1v11.45Z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
           </div>
 
           <div class="hero-stats" aria-label="Career highlights">
@@ -180,15 +202,132 @@
       </section>
     </main>
 
+
+    <dialog class="contact-modal" id="contact-dialog" aria-labelledby="contact-dialog-title">
+      <div class="contact-modal-card">
+        <div class="contact-modal-topbar">
+          <div class="contact-modal-badge">
+            <span aria-hidden="true"></span>
+            Get in Touch
+          </div>
+          <button
+            class="contact-modal-close"
+            id="contact-modal-close"
+            type="button"
+            aria-label="Close contact form"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+
+        <div class="contact-modal-header">
+          <h2 id="contact-dialog-title">
+            Let’s start a <em>conversation.</em>
+          </h2>
+          <p>
+            Have a project in mind, want to collaborate, or just want to connect?
+            Fill in the details below and I’ll get back to you as soon as I can.
+          </p>
+        </div>
+
+        <form class="contact-form" id="contact-form">
+          <div class="contact-form-grid">
+            <label class="contact-field">
+              <span>Full Name <strong>*</strong></span>
+              <input
+                id="contact-name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                maxlength="100"
+                placeholder="John Doe"
+                required
+              />
+            </label>
+
+            <label class="contact-field">
+              <span>Email Address <strong>*</strong></span>
+              <input
+                id="contact-email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                maxlength="254"
+                placeholder="john@example.com"
+                required
+              />
+            </label>
+          </div>
+
+          <label class="contact-field">
+            <span>Subject <strong>*</strong></span>
+            <input
+              id="contact-subject"
+              name="subject"
+              type="text"
+              maxlength="150"
+              placeholder="New Project Inquiry"
+              required
+            />
+          </label>
+
+          <label class="contact-field">
+            <span>Message <strong>*</strong></span>
+            <textarea
+              id="contact-message"
+              name="message"
+              rows="5"
+              maxlength="5000"
+              placeholder="Tell me about your project, idea, or reason for reaching out..."
+              required
+            ></textarea>
+          </label>
+
+          <label class="contact-honeypot" aria-hidden="true">
+            Website
+            <input
+              name="website"
+              type="text"
+              tabindex="-1"
+              autocomplete="off"
+            />
+          </label>
+
+          <button class="contact-submit-button" id="contact-submit-button" type="submit">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 8l7.89 5.26a2 2 0 0 0 2.22 0L21 8M5 19h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2z"></path>
+            </svg>
+            <span>Send Message</span>
+          </button>
+
+          <p class="contact-form-status" id="contact-form-status" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="contact-modal-footer">
+          <span>Typical response time: within 24 hours</span>
+          <span>
+            Direct email:
+            <a href="mailto:acbjohnson2002@gmail.com">acbjohnson2002@gmail.com</a>
+          </span>
+        </div>
+      </div>
+    </dialog>
+
     <button class="scroll-top-button" id="scroll-top-button" type="button" aria-label="Scroll to top">↑</button>
 
     <script>
       const roles = ["Software Engineer", "Game Developer", "UX Designer"];
-      const emailAddress = "acbjohnson2002@gmail.com";
       const roleEl = document.getElementById("hero-role");
       const menuToggleEl = document.getElementById("menu-toggle");
       const heroNavEl = document.getElementById("primary-navigation");
-      const contactCopyButtonEl = document.getElementById("contact-copy-button");
+      const contactButtonEl = document.getElementById("contact-button");
+      const contactDialogEl = document.getElementById("contact-dialog");
+      const contactModalCloseEl = document.getElementById("contact-modal-close");
+      const contactFormEl = document.getElementById("contact-form");
+      const contactSubmitButtonEl = document.getElementById("contact-submit-button");
+      const contactFormStatusEl = document.getElementById("contact-form-status");
       const projectGridEl = document.getElementById("project-grid");
       const experienceTimelineEl = document.getElementById("experience-timeline");
       const toolsGridEl = document.getElementById("tools-grid");
@@ -197,6 +336,8 @@
       const mobileCardQuery = window.matchMedia("(max-width: 760px)");
       let mobileCardEffectsBound = false;
       let mobileCardEffectsTicking = false;
+      let contactPageScrollY = 0;
+      let contactBodyPaddingRight = "";
       let roleIndex = 0;
       let charIndex = roles[0].length;
       let deleting = true;
@@ -228,18 +369,99 @@
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
 
-      async function copyEmailToClipboard() {
-        try {
-          await navigator.clipboard.writeText(emailAddress);
-          contactCopyButtonEl.textContent = "Email Copied!";
-        } catch (error) {
-          console.error(error);
-          contactCopyButtonEl.textContent = "Copy Failed";
+      function lockPageScroll() {
+        if (document.body.classList.contains("contact-modal-open")) {
+          return;
         }
 
-        window.setTimeout(() => {
-          contactCopyButtonEl.textContent = "Contact Me";
-        }, 2000);
+        contactPageScrollY = window.scrollY;
+        contactBodyPaddingRight = document.body.style.paddingRight;
+
+        const scrollbarWidth =
+          window.innerWidth - document.documentElement.clientWidth;
+
+        document.body.classList.add("contact-modal-open");
+        document.body.style.top = `-${contactPageScrollY}px`;
+
+        if (scrollbarWidth > 0) {
+          document.body.style.paddingRight = `${scrollbarWidth}px`;
+        }
+      }
+
+      function unlockPageScroll() {
+        if (!document.body.classList.contains("contact-modal-open")) {
+          return;
+        }
+
+        document.body.classList.remove("contact-modal-open");
+        document.body.style.top = "";
+        document.body.style.paddingRight = contactBodyPaddingRight;
+        window.scrollTo(0, contactPageScrollY);
+      }
+
+      function openContactModal() {
+        contactFormStatusEl.textContent = "";
+        contactFormStatusEl.className = "contact-form-status";
+
+        if (!contactDialogEl.open) {
+          contactDialogEl.showModal();
+          lockPageScroll();
+        }
+
+        window.requestAnimationFrame(() => {
+          document.getElementById("contact-name").focus();
+        });
+      }
+
+      function closeContactModal() {
+        if (contactDialogEl.open) {
+          contactDialogEl.close();
+        }
+      }
+
+      async function submitContactForm(event) {
+        event.preventDefault();
+
+        if (!contactFormEl.reportValidity()) {
+          return;
+        }
+
+        const formData = new FormData(contactFormEl);
+        const payload = Object.fromEntries(formData.entries());
+
+        contactSubmitButtonEl.disabled = true;
+        contactSubmitButtonEl.querySelector("span").textContent = "Sending...";
+        contactFormStatusEl.textContent = "Sending your message...";
+        contactFormStatusEl.className = "contact-form-status is-pending";
+
+        try {
+          const response = await fetch("/api/contact", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(payload),
+          });
+
+          const responseData = await response.json().catch(() => ({}));
+
+          if (!response.ok) {
+            throw new Error(responseData.error || "Unable to send your message.");
+          }
+
+          contactFormEl.reset();
+          contactFormStatusEl.textContent =
+            "Message sent successfully. Thanks for reaching out!";
+          contactFormStatusEl.className = "contact-form-status is-success";
+        } catch (error) {
+          console.error(error);
+          contactFormStatusEl.textContent =
+            "I couldn’t send your message right now. Please try again or use the direct email link below.";
+          contactFormStatusEl.className = "contact-form-status is-error";
+        } finally {
+          contactSubmitButtonEl.disabled = false;
+          contactSubmitButtonEl.querySelector("span").textContent = "Send Message";
+        }
       }
 
       function tick() {
@@ -463,7 +685,15 @@
       });
       window.addEventListener("scroll", updateScrollTopButton, { passive: true });
       scrollTopButtonEl.addEventListener("click", scrollToTop);
-      contactCopyButtonEl.addEventListener("click", copyEmailToClipboard);
+      contactButtonEl.addEventListener("click", openContactModal);
+      contactModalCloseEl.addEventListener("click", closeContactModal);
+      contactDialogEl.addEventListener("close", unlockPageScroll);
+      contactFormEl.addEventListener("submit", submitContactForm);
+      contactDialogEl.addEventListener("click", (event) => {
+        if (event.target === contactDialogEl) {
+          closeContactModal();
+        }
+      });
       menuToggleEl.addEventListener("click", toggleMobileMenu);
       heroNavEl.querySelectorAll("a").forEach((link) => {
         link.addEventListener("click", closeMobileMenu);

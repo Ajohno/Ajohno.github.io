@@ -227,6 +227,12 @@ a {
   margin-top: 2.5rem;
 }
 
+.hero-contact-actions {
+  display: flex;
+  align-items: stretch;
+  gap: 0.75rem;
+}
+
 .secondary-action {
   padding: 0.95rem 1.8rem;
   border-radius: 1rem;
@@ -235,6 +241,39 @@ a {
   background: transparent;
   cursor: pointer;
   font: inherit;
+}
+
+.linkedin-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.55rem;
+  min-width: 3.55rem;
+  padding: 0;
+  border: 1px solid rgba(198, 154, 63, 0.35);
+  border-radius: 1rem;
+  color: #d5b15a;
+  background: transparent;
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.linkedin-action:hover,
+.linkedin-action:focus-visible {
+  color: #0b0b0b;
+  border-color: #d1a548;
+  background: #d1a548;
+  transform: translateY(-1px);
+}
+
+.linkedin-action svg {
+  width: 1.45rem;
+  height: 1.45rem;
+  fill: currentColor;
 }
 
 .hero-stats {
@@ -954,9 +993,22 @@ a {
     flex-direction: column;
   }
 
-  .hero-actions a,
-  .hero-actions button {
+  .hero-actions > .primary-action {
     width: 100%;
+  }
+
+  .hero-contact-actions {
+    width: 100%;
+  }
+
+  .hero-contact-actions .secondary-action {
+    flex: 1 1 auto;
+    width: auto;
+  }
+
+  .hero-contact-actions .linkedin-action {
+    flex: 0 0 3.55rem;
+    width: 3.55rem;
   }
 
   .hero-stats,

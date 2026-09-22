@@ -315,6 +315,8 @@
       const mobileCardQuery = window.matchMedia("(max-width: 760px)");
       let mobileCardEffectsBound = false;
       let mobileCardEffectsTicking = false;
+      let contactPageScrollY = 0;
+      let contactBodyPaddingRight = "";
       let roleIndex = 0;
       let charIndex = roles[0].length;
       let deleting = true;
@@ -346,12 +348,43 @@
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
 
+      function lockPageScroll() {
+        if (document.body.classList.contains("contact-modal-open")) {
+          return;
+        }
+
+        contactPageScrollY = window.scrollY;
+        contactBodyPaddingRight = document.body.style.paddingRight;
+
+        const scrollbarWidth =
+          window.innerWidth - document.documentElement.clientWidth;
+
+        document.body.classList.add("contact-modal-open");
+        document.body.style.top = `-${contactPageScrollY}px`;
+
+        if (scrollbarWidth > 0) {
+          document.body.style.paddingRight = `${scrollbarWidth}px`;
+        }
+      }
+
+      function unlockPageScroll() {
+        if (!document.body.classList.contains("contact-modal-open")) {
+          return;
+        }
+
+        document.body.classList.remove("contact-modal-open");
+        document.body.style.top = "";
+        document.body.style.paddingRight = contactBodyPaddingRight;
+        window.scrollTo(0, contactPageScrollY);
+      }
+
       function openContactModal() {
         contactFormStatusEl.textContent = "";
         contactFormStatusEl.className = "contact-form-status";
 
         if (!contactDialogEl.open) {
           contactDialogEl.showModal();
+          lockPageScroll();
         }
 
         window.requestAnimationFrame(() => {
@@ -633,6 +666,7 @@
       scrollTopButtonEl.addEventListener("click", scrollToTop);
       contactButtonEl.addEventListener("click", openContactModal);
       contactModalCloseEl.addEventListener("click", closeContactModal);
+      contactDialogEl.addEventListener("close", unlockPageScroll);
       contactFormEl.addEventListener("submit", submitContactForm);
       contactDialogEl.addEventListener("click", (event) => {
         if (event.target === contactDialogEl) {

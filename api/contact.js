@@ -14,11 +14,7 @@ function normalizeText(value) {
 }
 
 export default async function handler(request, response) {
-  const isE2ETest =
-    request.method === "GET" &&
-    request.query?.__e2e === "contact-flow-check-20260922-a91f";
-
-  if (request.method !== "POST" && !isE2ETest) {
+  if (request.method !== "POST") {
     response.setHeader("Allow", "POST");
     return sendJson(response, 405, { error: "Method not allowed." });
   }
@@ -28,16 +24,7 @@ export default async function handler(request, response) {
     return sendJson(response, 500, { error: "Contact form is not configured yet." });
   }
 
-  let body = isE2ETest
-    ? {
-        name: "Portfolio Test",
-        email: "visitor-test@example.com",
-        subject: "End-to-end contact form test",
-        message:
-          "Automated end-to-end test of the portfolio contact form through the Vercel preview deployment.",
-        website: "",
-      }
-    : request.body;
+  let body = request.body;
 
   if (typeof body === "string") {
     try {
